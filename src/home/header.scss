@@ -1,0 +1,29 @@
+.header{
+    #header-main{
+        width: 100%;
+        height: 100px;
+        background-color: #d77c08;
+        margin: auto;
+        #login{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            border: 1px solid #000;
+        }
+    }
+    
+}
+.w80{
+    width: 80%;
+}
+
+
+.d-flex{
+    display: flex;
+}
+.a-i{
+    align-items: center;
+}
+.s-a{
+    justify-content: space-around;
+}
