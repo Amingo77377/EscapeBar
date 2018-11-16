@@ -1,0 +1,39 @@
+#pro_price{
+    width: 100%;
+    border: 1px solid #000;
+    height: 80px;
+    display: flex;
+    #price{
+        height: 80px;
+        width: 40%;
+        border-right: 1px solid #000;
+        p{
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700
+        }
+        #price_p{
+            color: #D0104C;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+    .w60{
+        height: 80;
+        width: 60%;
+        margin: auto;
+        text-align: center;
+        button{
+            background-color: #F7882F;
+            width: 60%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 700
+        }
+    }
+}

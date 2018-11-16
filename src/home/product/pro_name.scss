@@ -1,3 +1,38 @@
 #pro_name{
-    width: 65%;
+    // width: 100%;
+    div{
+        // box-sizing: border-box;
+        // padding: 5px;
+        .jc_sb{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 20px 0;
+            li{
+                margin-right: 10px;
+                color: #876633;
+                border: 1px solid #876633;
+                border-radius: 12.5px;
+                font-weight: 800;
+                width: 70px;
+                height: 25px;
+                text-align: center;
+            }
+        }
+        select{
+            height: 25px;
+            margin-right: 20px;
+        }
+        .map_btn{
+            width: 22.5px;
+            height: 22.5px;
+            
+        }
+    }
+    
 }

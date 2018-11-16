@@ -1,0 +1,51 @@
+#pro_manu{
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 30px;
+    text-align: center;
+    h3{
+        margin: 0;
+    }
+    h4{
+        color: #C18A26;
+        font-weight: 700;
+        margin: 30px 0 10px 0;
+    }
+    #manu_frame{
+        border-top: 3px solid #C18A26;
+        padding: 20px;
+        #manu_logo{
+            width: 150px;
+            height: 150px;
+            background-image: url(../../images/壞主意工作室.jpg);
+            background-size: contain;
+            border-radius: 50%;
+            margin: auto;
+            cursor: pointer;
+        }
+        #manu_info{
+            margin-top: 20px;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 30px 0 10px 0;
+            li{
+                text-align: left;
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+                
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 7px;
+                }
+                p{
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
