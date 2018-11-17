@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import './pro_stock.scss';
-import DATE_PICKER from './date_picker.js'
+import DatePicker from './date_picker.js'
 
 class PRO_STOCK extends Component{
     constructor(props){
@@ -27,7 +27,7 @@ class PRO_STOCK extends Component{
                     </div>
                     <div id="pro_stock_date">
                         <h4>預約日期與時段</h4>
-                        <DATE_PICKER />
+                        <DatePicker />
                     </div>
                     <div id="pro_stock_price"></div>
                     <div id="pro_stock_buy_btn"></div>

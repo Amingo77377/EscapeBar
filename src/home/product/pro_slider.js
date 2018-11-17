@@ -2,15 +2,18 @@ import React,{Component} from 'react';
 import './pro_slider.scss';
 
 class PRO_SLIDER extends Component{
+    nextLock = false
     constructor(props){
         super(props)
         this.state = {
-            i: 0,
-
+            i: 0
         }
-
     }
     l_sliderNext = () =>{
+        if (this.nextLock) {
+            return
+        }
+        this.nextLock = true
         let winWidth = window.innerWidth;
         // let i = this.state.i -1;
         let slider = document.querySelector("#l_slider ul");
@@ -22,11 +25,12 @@ class PRO_SLIDER extends Component{
         // this.setState({
         //     i: i
         // })
-        setTimeout(function a(){
+        setTimeout(() => {
             slider.classList.remove("trans");
             slider.append(first_child);
             slider.style.left = -winWidth+ 'px';
-        },500);
+            this.nextLock = false
+        },600);
         // console.log(i);
         
     }

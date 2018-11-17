@@ -1,121 +1,88 @@
-import React,{Component} from 'react';
-import './date_picker.scss';
+import React, {Component} from 'react'
+import './date_picker.scss'
 
-
-class DATE_PICKER extends Component{
-    constructor(props){
-        super(props)
-        let now = new Date()
-        let now_year = now.getFullYear();
-        let now_month = now.getMonth();
-        this.state = {
-            year: now_year,
-            month: now_month
-        }
-
+class DatePicker extends Component {
+  constructor (props) {
+    super(props)
+    let now = new Date()
+    let currentYear = now.getFullYear()
+    let currentMonth = now.getMonth()
+    this.state = {
+      currentYear,
+      currentMonth
     }
-    componentDidUpdate(){
-        // let month_olympic = [31,29,31,30,31,30,31,31,30,31,30,31];
-        // let month_normal = [31,28,31,30,31,30,31,31,30,31,30,31];
-        // let now_date = new Date();
-        // let now_year = now_date.getFullYear();
-        // let now_month = now_date.getMonth();
-        // let now_day = now_date.getDate();
-        // this.setState({
-        //     year: now_year,
-        //     month: now_month
-        // });
+  }
+  makeCanlendar = (callback) => {
+    let monthData = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    let {
+      currentYear,
+      currentMonth
+    } = this.state
+    let w = new Date(currentYear, currentMonth, 1)
+    let weekday = w.getDay()
+    let totalDays = 0
+    let createWeekDays = () => {
+      return []
     }
-    componentDidMount(){
-        // let month_olympic = [31,29,31,30,31,30,31,31,30,31,30,31];
-        // let month_normal = [31,28,31,30,31,30,31,31,30,31,30,31];
-        // let now_date = new Date();
-        // let now_year = now_date.getFullYear();
-        // let now_month = now_date.getMonth();
-        // let w = new Date(now_year, now_month, 1);
-        // let weekday = w.getDay();
-        // let total_days = "";
-        // var calendar = "";
-        //     for(let i=0; i<weekday; i++){
-        //         calendar += "<li></li>";
-        //     };
-        //     if(now_year%4 == 0){
-        //          total_days = month_olympic[now_month];
-        //     }else{
-        //          total_days = month_normal[now_month];
-        //     }
-        //     for(let j=1; j<=total_days; j++){
-        //         calendar += `<li>${j}</li>`;
-        //     }
-        // document.querySelector("#days").innerHTML = calendar;
-        // // console.log("now_week:" + now_week.getDay());
-        // console.log(weekday);
-        
-        // this.setState({
-        //     year: now_year,
-        //     month: now_month+1,
-        //     // calendar: calendar
-        // });
+    // createWeekDays = () => []
+    let currentWeekDays = createWeekDays()
+    let month = []
+
+    if (currentYear % 4 === 0) {
+      monthData[1] = 29
     }
+    totalDays = monthData[currentMonth]
 
-    makeDays = () => {
-        let month_olympic = [31,29,31,30,31,30,31,31,30,31,30,31]
-        let month_normal = [31,28,31,30,31,30,31,31,30,31,30,31]
-        let {
-            year,
-            month
-        } = this.state
-        let w = new Date(year, month, 1)
-        let weekday = w.getDay()
-        let total_days = 0
-        var calendar = []
-
-            for(let i=0; i<weekday; i++){
-                calendar.push(<li key={`n${i}`}></li>)
-            }
-            if(year % 4 == 0){
-                 total_days = month_olympic[month];
-            }else{
-                 total_days = month_normal[month];
-            }
-            for(let j=1; j<=total_days; j++){
-                calendar.push(<li key={`d${j}`}>{j}</li>)
-            }
-        return (
-            <ul id='days'>
-                {calendar}
-            </ul>
-        )
+    for (let i = 0; i < weekday; i++) {
+      currentWeekDays.push('')
     }
-
-    render(){
-        let {
-            year,
-            month
-        } = this.state
-        return(
-            <React.Fragment>
-                <div id="date_picker">
-                   <h5>{year}年{month + 1}月</h5>
-                   <ul>
-                       <li className="text-red">日</li>
-                       <li>一</li>
-                       <li>二</li>
-                       <li>三</li>
-                       <li>四</li>
-                       <li>五</li>
-                       <li className="text-red">六</li>
-                   </ul>
-                   <div>
-                       {/* <ul id="days">{this.state.calendar}</ul> */}
-                       {this.makeDays()}
-                   </div>
-                </div>
-            </React.Fragment>
-        )
+    for (let j = 1; j <= totalDays; j++) {
+      if (currentWeekDays.length >= 7) {
+        month.push(currentWeekDays)
+        currentWeekDays = createWeekDays()
+      }
+      currentWeekDays.push(j)
     }
+    while (currentWeekDays.length < 7) {
+      currentWeekDays.push('')
+    }
+    month.push(currentWeekDays)
+    let calendar = month.map((week, i) => (
+      <tr className={'weeks'} key={`w${i}`}>
+        {week.map((day, j) => (<td key={`${i}${j}`}>{day}</td>))}
+      </tr>))
+    return (calendar)
+  }
 
-
+  render () {
+    let {
+      currentYear,
+      currentMonth
+    } = this.state
+    return (
+      <React.Fragment>
+        <div id='date_picker'>
+          <h5>{currentYear}年{currentMonth + 1}月</h5>
+          <table>
+            <thead>
+              <tr>
+                <th className='text-red'>日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th className='text-red'>六</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.makeCanlendar()}
+            </tbody>
+          </table>
+        </div>
+      </React.Fragment>
+    )
+  }
 }
 
-export default DATE_PICKER;
+export default DatePicker
