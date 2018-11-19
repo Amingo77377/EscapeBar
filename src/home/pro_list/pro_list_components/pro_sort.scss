@@ -1,0 +1,27 @@
+#pro_sort{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: 1px solid #B0ABAB;
+  .w15{
+    width: 15%;
+    height: 40px;
+    border-right: 2px solid #B0ABAB;
+    h4{
+      margin: 0 0 0 20px;
+      font-size: 1.1rem;
+      line-height: 40px;
+      
+    }
+  }
+  .w85{
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+}

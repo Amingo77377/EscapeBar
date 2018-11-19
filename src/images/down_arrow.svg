@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.463 14.991">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #aab0bb;
+      }
+    </style>
+  </defs>
+  <path id="icon--back" class="cls-1" d="M4.144,12.732h0L14.991,2.244,12.732,0,0,12.732,12.732,25.463l2.244-2.244L4.144,12.732Z" transform="translate(0 14.991) rotate(-90)"/>
+</svg>

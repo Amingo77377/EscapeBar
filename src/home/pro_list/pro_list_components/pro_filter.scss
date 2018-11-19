@@ -1,0 +1,46 @@
+#pro_filter{
+    margin-top: 30px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+    div{
+        width: 15%;
+        h4{
+            border-bottom: 2px solid #F7882F;
+            margin: 0;
+        }
+        form{
+            box-sizing: border-box;
+            padding: 5px;
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            // align-items: center;
+            height: 200px;
+            border-right: 1px solid #B0ABAB;
+            input{
+                display: none;
+            }
+            input:checked + label{
+                background: url(../../../images/checked.png) no-repeat;
+                background-size: 20px;
+            }
+            label{
+                text-indent: 25px;
+                width: 50%;
+                height: 20px;
+                background: url(../../../images/unchecked.png) no-repeat;
+                background-size: 20px;
+            }
+            div{ 
+                width: 25%;
+                margin: 0;
+            }
+        }
+    }
+    
+}
