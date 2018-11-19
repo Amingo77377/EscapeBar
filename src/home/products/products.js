@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-import './product.scss';
+import React, {Component} from 'react';
+import './products.scss';
 import PRO_SLIDER from './pro_slider.js';
 import PRO_NAME from './pro_name.js';
 import PRO_INFO from './pro_info.js';
@@ -12,7 +12,7 @@ import PRO_BUY_RULE from './pro_buy_rule.js';
 import PRO_STOCK from './pro_stock.js';
 import PRO_AD from './pro_ad.js';
 
-class Product extends Component{
+class Products extends Component{
     constructor(props){
         super(props)
 
@@ -25,14 +25,14 @@ class Product extends Component{
     render(){
         return(
             <React.Fragment>
-                <div id="product">
+                <div id="products">
                     <PRO_SLIDER />
                     <div id="pro_body">
                         <div className="pro_body_l">
                             <PRO_NAME />
                             <PRO_INFO />
                             {/* <PRO_COMMENT/> */}
-                            {/* <PRO_BUY_RULE/> */}
+                            <PRO_BUY_RULE/>
                         </div>
                         <div className="pro_body_r">
                             <PRO_PRICE />
@@ -43,7 +43,7 @@ class Product extends Component{
                         </div>
                         <div className="pro_body_l">
                             {/* <PRO_COMMENT/> */}
-                            <PRO_BUY_RULE/>
+                            {/* <PRO_BUY_RULE/> */}
                         </div>
                         <div className="pro_body_r">
                             {/* <PRO_STOCK /> */}
@@ -57,4 +57,4 @@ class Product extends Component{
     }
 }
 
-export default Product;
+export default Products;

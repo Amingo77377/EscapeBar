@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from './home/home';
-import PRODUCT from './home/product/product.js';
+import PRODUCTS from './home/products/products.js';
 
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         {/* <Home /> */}
-        <PRODUCT/>
+        <PRODUCTS/>
       </div>
     );
   }

@@ -1,12 +1,14 @@
 #pro_price{
     width: 100%;
-    border: 1px solid #000;
+    // border: 1px solid #000;
+    // background-color: #fff;
+    // border-radius: 5px;
     height: 80px;
     display: flex;
     #price{
         height: 80px;
         width: 40%;
-        border-right: 1px solid #000;
+        // border-right: 1px solid #000;
         p{
             margin: 0;
             font-size: 1.2rem;
@@ -20,10 +22,13 @@
         }
     }
     .w60{
-        height: 80;
+        height: 60px;
+        border-left: 1px solid #000;
         width: 60%;
         margin: auto;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         button{
             background-color: #F7882F;
             width: 60%;

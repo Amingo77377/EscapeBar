@@ -1,0 +1,54 @@
+#date_picker{
+    min-width: 126px;
+    width: 100%;
+    height: 300px;
+    // border: 1px solid #000;
+    #calendar_title{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h5{
+            font-size: 1.2rem;
+           
+        }
+        i{
+            cursor: pointer;
+            transform: scale(1.5);
+            margin: 0 25px;
+            padding: 10px;
+            color: #F7C331;
+        }
+    }
+    table{
+        display: flex;
+        flex-direction: column;
+        tr{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            th{
+                min-width: 18;
+            }
+            .text-red{
+                color: #D75A4A;
+            }
+        }
+        .weeks{
+            width: 100%;
+            display: flex;
+            list-style: none;
+            padding: 0;
+            justify-content: space-around;
+            flex-wrap: wrap; 
+            margin: 5px 0;
+            td{
+                min-width: 18;
+                width: 1rem;
+                text-align: right;
+            }
+        }
+    }
+}

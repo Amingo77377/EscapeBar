@@ -1,0 +1,150 @@
+#pro_stock{
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 30px;
+    border: 1px solid #B0ABAB;
+    #pro_stock_place{
+        
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 10px;
+        h4{
+            padding: 10px 0;
+            margin: auto;
+            width: 80%;
+            border-bottom: 1px solid #F7882F;
+        }
+        select{
+            margin: 15px 0;
+        }
+    }
+    #pro_stock_date{
+        text-align: center;
+        h4{
+            width: 80%;
+            margin: auto;
+            border-bottom: 1px solid #F7882F;
+            padding: 10px 0;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li{
+                border: 1px solid #B0ABAB;
+                background-color: #EFEFEF;
+                height: 40px;
+                width: 100%;
+                font-size: 1.2rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                .unchecked{
+                    width: 15px;
+                    height: 15px;
+                    border: 1px solid #B0ABAB;
+                    border-radius: 50%;
+                }
+                .checked{
+                    width: 15px;
+                    height: 15px;
+                    border: 1px solid #F00A6B;
+                    border-radius: 50%;
+                }
+                .number{
+                    display: flex;
+                    align-items: center;
+                    .minus-btn{
+                        margin: 0 10px;
+                        cursor: pointer;
+                        width: 20px;
+                        height: 20px;
+                        padding: 10px;
+                        display: flex;
+                        align-items: center;
+                        .mb1{
+                            width: 18px;
+                            height: 3px;
+                            border-radius: 1.5px;
+                            background-color: #aaa;
+                        }
+                    }
+                    .plus-btn{
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 10px;
+                        padding: 10px;
+                        position: relative;
+                        // padding: 5px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        div{
+                            position: absolute;
+                            width: 18px;
+                            height: 3px;
+                            border-radius: 1.5px;
+                            background-color: #aaa;
+                        }
+                        .pb1{
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+#pro_stock_price{
+    margin-top: 10px;
+    width: 100%;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    justify-content: space-around;
+    #title{
+        p{
+            margin: 0;
+        }
+    }
+    #total_price{
+        margin: 15px ;
+        border: 1px solid #B0ABAB;
+        border-radius: 50%;
+        background-color: #fff;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        p{
+            margin: 10px 0 5px 0;
+        }
+        h4{
+            margin: 0;
+            padding: 0;
+            font-size: 1.7rem;
+            color: #F00A6B
+        }
+    }
+}
+#pro_stock_buy{
+    margin-top: 10px;
+    justify-content: space-between;
+    div{
+        background-color: #F7882F;
+        margin: 0 10px;
+        width: 40%;
+        height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+        line-height: 40px;
+    }
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
