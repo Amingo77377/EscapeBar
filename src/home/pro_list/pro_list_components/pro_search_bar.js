@@ -5,21 +5,26 @@ class SearchBar extends Component{
   constructor(props){
     super(props)
     this.state = {
-
+      city: 1,
+      price: 500,
+      people: 5
     }
-
+    
   }
   componentDidUpdate(){
-        
+    
   }
-
+  onSearch = (evt) => {
+    this.props.search(this.state);
+    evt.preventDefault();
+  }
   render(){
     return(
       <React.Fragment>
         <div id="pro_search_bar">
           <form>
             <div id="search_input">
-                <i class="fas fa-search"></i><input />
+                <i className="fas fa-search"></i><input />
             </div>
             <select>
               <option>縣市</option>
@@ -33,7 +38,7 @@ class SearchBar extends Component{
             <select>
               <option>price</option>
             </select>
-            <button type="submit"  id="search-btn">搜尋 </button>
+            <button id="search-btn" onClick={this.onSearch}>搜尋 </button>
           </form>
         </div>
       </React.Fragment>
