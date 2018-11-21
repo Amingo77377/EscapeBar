@@ -1,0 +1,135 @@
+  #pro_cards{
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+
+    .card_rows{
+      // width: 96%;
+      // margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      // flex-shrink: 1;
+      .pro_card{
+        margin: 25px 2%;
+        width: 21%;
+        min-width: 250px;
+        position: relative;
+        cursor: pointer;
+        .workshop_logo{
+          position: absolute;
+          left: 5px;
+          top: -25px;
+          z-index: 10;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 1px solid #aaa;
+          background-image: url(../../../images/A5Studio-全員脫逃中.jpg);
+          background-size: contain;
+        }
+        .card_frame{
+          background-color: #fff;
+          box-shadow: 1px 1px 10px rgba(0, 0, 0, .5);
+          border-radius: 5px;
+          overflow: hidden;
+          
+          .pro_main_img{
+            position: relative;
+            
+            width: 100%;
+            height: 150px;
+            background-image: url(../../../images/test1.png);
+            background-size: contain;
+            .favor-btn{
+              position: absolute;
+              width: 35px;
+              height: 35px;
+              border-radius: 50%;
+              background-image: url(../../../images/favor2.png);
+              background-size: 35px;
+              right: 5px;
+              bottom: 5px;
+             
+            }
+          }
+          .card_body{
+            .title_div{
+              margin: 5px;
+              height: 2.4rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              h3{
+                font-size: 1.2rem;
+                // text-align: center;
+                margin: 0;
+                // text-align-last: left;
+                // word-break: break-all;
+              }
+            }
+            ul{
+              list-style: none;
+              display: flex;
+              margin: 0;
+              padding: 0;
+              justify-content: space-evenly;
+              align-items: center;
+              li{
+                width: 30%;
+                color: #876633;
+                border: 1px solid #876633;
+                border-radius: 12.5px;
+                margin: 0 5px;
+                text-align: center;
+                font-weight: 700;
+              }
+            }
+            .enter-btn{
+              width: 90px;
+              height: 30px;
+              background-color: #F7882F;
+              color: white;
+              text-align: center;
+              margin: 10px auto;
+              border-radius: 5px;
+              cursor: pointer;
+              p{
+                margin: 0;
+                line-height: 30px;
+              }
+            }
+          }
+          .card_foot{
+            margin: 5px;
+            padding-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1.5px solid #F7882F;
+            .card_city{
+              background: url(../../../images/gmap_logo.png) left center no-repeat;
+              background-size: 15px;
+              text-indent: 15px;
+    
+            }
+            .card_price{
+              color: #F00A6B;
+              font-weight: 700;
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+      .pro_card_none{
+        width: 250px;
+        // visibility: hidden;
+        height: 30px;
+        border: 1px solid #aaa;
+      }
+    }
+  }
+    
+    

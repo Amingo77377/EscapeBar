@@ -3,7 +3,7 @@ import './pro_list.scss';
 import { SearchBar,
          ProFilter,
          ProSort,
-         ProCard,
+         ProCards,
          ProCategories
  } from './pro_list_components/index.js'
 
@@ -34,11 +34,7 @@ class ProList extends Component{
           <div className="w80">
             <ProFilter />
             <ProSort />
-            <div id="pro_cards">
-              <div className="card_rows">
-                <ProCard />
-              </div>
-            </div>
+            <ProCards products={this.state.products}/>
             <ProCategories />
             <br />
             <br /><br /><br /><br /><br />
