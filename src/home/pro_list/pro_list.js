@@ -11,7 +11,8 @@ class ProList extends Component{
   constructor(props){
     super(props)
     this.state = {
-      products: []
+      products: [],
+      records: []
     }
 
   }
@@ -32,10 +33,12 @@ class ProList extends Component{
     })
     .then(res=>res.json())
     .then(products => this.setState({
-      products:products
+      products:products,
+      records: data,
     }));
     // .then(products => getProducts = products)
-    console.log(this.state.products);    
+    console.log("products:" + JSON.stringify(this.state.products));
+    console.log("records:" + this.state.records.city);
   }
   render(){
     return(

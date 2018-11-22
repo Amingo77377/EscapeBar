@@ -118,7 +118,18 @@ class SearchBar extends Component{
     })
     console.log(this.state.price);
   }
-
+  
+  // mDown = () => {
+  //   let win = document.window;
+  //   win.addEventListener("mouseDown", () => {
+  //     this.setState({
+  //       openCity: "",
+  //       openCate: "",
+  //       openPeople: "",
+  //       openPrice: "",
+  //     })
+  //   })
+  // }
   render(){
     return(
       <React.Fragment>
@@ -132,7 +143,7 @@ class SearchBar extends Component{
               <div className="first" data-value=">=1" >{this.state.nowCity}</div>
               <div className={"option" + " " + this.state.openCity}>
                 <div className="" data-value=">=1" data-text="不限" onClick={this.selCity}>不限</div>
-                <div className="" data-value="1" data-text="台北市" onClick={this.selCity}>台北市</div>
+                <div className="" data-value="=1" data-text="台北市" onClick={this.selCity}>台北市</div>
                 <div className='' data-value="=2" data-text="新北市" onClick={this.selCity}>新北市</div>
                 <div className='' data-value="=4" data-text="桃園市" onClick={this.selCity}>桃園市</div>
                 <div className='' data-value="=5" data-text="新竹市" onClick={this.selCity}>新竹市</div>
@@ -170,16 +181,16 @@ class SearchBar extends Component{
               <div className="first" data-value="">{this.state.nowPeople}</div>
               <div className={"option" +" " + this.state.openPeople}>
                 <div className="" data-value="" data-text="不限" onClick={this.selPeople}>不限</div>
-                <div className="" data-value="1" data-text="1人" onClick={this.selPeople}>1人</div>
-                <div className="" data-value="2" data-text="2人" onClick={this.selPeople}>2人</div>
-                <div className="" data-value="3" data-text="3人" onClick={this.selPeople}>3人</div>
-                <div className="" data-value="4" data-text="4人" onClick={this.selPeople}>4人</div>
-                <div className="" data-value="5" data-text="5人" onClick={this.selPeople}>5人</div>
-                <div className="" data-value="6" data-text="6人" onClick={this.selPeople}>6人</div>
-                <div className="" data-value="7" data-text="7人" onClick={this.selPeople}>7人</div>
-                <div className="" data-value="8" data-text="8人" onClick={this.selPeople}>8人</div>
-                <div className="" data-value="9" data-text="9人" onClick={this.selPeople}>9人</div>
-                <div className="" data-value="10" data-text="10人" onClick={this.selPeople}>10人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 1 && 1 <= p.`PEOPLE_MAX`" data-text="1人" onClick={this.selPeople}>1人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 2 && 2 <= p.`PEOPLE_MAX`" data-text="2人" onClick={this.selPeople}>2人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 3 && 3 <= p.`PEOPLE_MAX`" data-text="3人" onClick={this.selPeople}>3人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 4 && 4 <= p.`PEOPLE_MAX`" data-text="4人" onClick={this.selPeople}>4人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 5 && 5 <= p.`PEOPLE_MAX`" data-text="5人" onClick={this.selPeople}>5人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 6 && 6 <= p.`PEOPLE_MAX`" data-text="6人" onClick={this.selPeople}>6人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 7 && 7 <= p.`PEOPLE_MAX`" data-text="7人" onClick={this.selPeople}>7人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 8 && 8 <= p.`PEOPLE_MAX`" data-text="8人" onClick={this.selPeople}>8人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 9 && 9 <= p.`PEOPLE_MAX`" data-text="9人" onClick={this.selPeople}>9人</div>
+                <div className="" data-value="&& p.`PEOPLE_MIN` <= 10 && 10 <= p.`PEOPLE_MAX`" data-text="10人" onClick={this.selPeople}>10人</div>
               </div>
             </div>
 
