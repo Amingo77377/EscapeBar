@@ -18,9 +18,18 @@ class ProList extends Component{
   componentDidUpdate(){
         
   }
-  search = () => {
+  search = (data) => {
     // let getProducts = [];
-    fetch("http://localhost:3000/eb/pro_list/")
+    console.log(data)
+    console.log(JSON.stringify(data))
+    fetch('http://localhost:3000/eb/pro_list/' + JSON.stringify(data),{
+      method:'GET',
+      mode: "cors",
+      // body: JSON.stringify(data),
+      // headers: new Headers({
+      //   'Content-Type':'application/json'
+      // })
+    })
     .then(res=>res.json())
     .then(products => this.setState({
       products:products

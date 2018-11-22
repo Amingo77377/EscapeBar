@@ -25,9 +25,9 @@ class PRO_MANU extends Component{
 
 【腦細胞入侵】是「壞主意工作室」的第一個遊戲，遊戲謎題的類型十分多樣化，常見的鎖頭改以機關操作、多人合作、限時反應等形式，呈現讓玩家感到身歷其境、彷彿真的進入人體中冒險，不只考驗玩家腦力，和反應更考驗團隊成員之間的默契。還在等什麼，快和您的好友一起展開冒險吧！</div>
                         <ul>
-                            <li><img src={require("../../../public/images/clock.svg")}/><p>10:30 - 22:00</p></li>
-                            <li><img src={require("../../../public/images/tel.svg")}/><p>02-2255-5022</p></li>
-                            <li><img src={require("../../../public/images/map.svg")}/><p>新北市板橋區吳鳳路50巷75弄8號1樓</p></li>
+                            <li><img src={require("../../images/clock.svg")}/><p>10:30 - 22:00</p></li>
+                            <li><img src={require("../../images/tel.svg")}/><p>02-2255-5022</p></li>
+                            <li><img src={require("../../images/map.svg")}/><p>新北市板橋區吳鳳路50巷75弄8號1樓</p></li>
                         </ul>
                     </div>
                 </div>
