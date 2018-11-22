@@ -19,11 +19,13 @@ class ProList extends Component{
         
   }
   search = () => {
+    // let getProducts = [];
     fetch("http://localhost:3000/eb/pro_list/")
     .then(res=>res.json())
     .then(products => this.setState({
       products:products
     }));
+    // .then(products => getProducts = products)
     console.log(this.state.products);    
   }
   render(){

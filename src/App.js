@@ -11,8 +11,8 @@ class App extends Component {
     return (
       <div className="App">
         {/* <Home /> */}
-        {/* <PRODUCTS/> */}
-        <ProList/>
+        <PRODUCTS/>
+        {/* <ProList/> */}
       </div>
     );
   }
