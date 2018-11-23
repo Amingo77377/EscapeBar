@@ -18,17 +18,27 @@ class SearchBar extends Component{
       nowPeople: "選擇人數",
 
       openPrice: "",
-      price: "5000",
-      nowPrice: "價格範圍"
+      price: "",
+      nowPrice: "價格範圍",
 
+      text: "",
+      textResults: [],
+      keywordOpen: ""
     }
     
   }
+  //執行搜尋
   onSearch = (evt) => {
-    this.props.search(this.state);
     evt.preventDefault();
+    console.log("city:" + this.state.city)
+    console.log("cate:" + this.state.cate)
+    console.log("people:" + this.state.people)
+    console.log("price:" + this.state.price)
+    console.log("text:" + this.state.text)
+    this.props.search(this.state);
   }
 
+  //縣市下拉選單
   openCity = () => {
     if(this.state.openCity === ""){
       this.setState({
@@ -40,19 +50,21 @@ class SearchBar extends Component{
       })
     }
   }
-    
+  
+  //回傳縣市給state
   selCity = (evt) => {
     let city = evt.target.dataset.value;
     let nowCity = evt.target.dataset.text;
-    console.log(nowCity);
+    // console.log(nowCity);
     
     this.setState({
       city: city,
       nowCity: nowCity
     })
-    console.log(this.state.city)
+    // console.log(this.state.city)
   }
 
+  //分類下拉選單
   openCate = () => {
     if(this.state.openCate === ""){
       this.setState({
@@ -64,7 +76,7 @@ class SearchBar extends Component{
       })
     }
   }
-
+  //回傳分類給state
   selCate = (evt) => {
     let cate = evt.target.dataset.value;
     let nowCate = evt.target.dataset.text;
@@ -75,6 +87,7 @@ class SearchBar extends Component{
     console.log(this.state.cate);
   }
 
+  //人數下拉選單
   openPeople = () => {
     if(this.state.openPeople === ""){
       this.setState({
@@ -86,7 +99,7 @@ class SearchBar extends Component{
       })
     }
   }
-  
+  //回傳人數給state
   selPeople = (evt) => {
     let people = evt.target.dataset.value;
     let nowPeople = evt.target.dataset.text;
@@ -97,6 +110,7 @@ class SearchBar extends Component{
     console.log(this.state.people);
   }
 
+  //價錢下拉選單
   openPrice = () => {
     if(this.state.openPrice === ""){
       this.setState({
@@ -108,7 +122,7 @@ class SearchBar extends Component{
       })
     }
   }
-
+  //回傳價錢給state
   selPrice = (evt) => {
     let price = evt.target.dataset.value;
     let nowPrice = evt.target.dataset.text;
@@ -130,13 +144,54 @@ class SearchBar extends Component{
   //     })
   //   })
   // }
+
+  //輸入搜尋bar
+  searchBar = (evt) => {
+    let text = evt.target.value;
+    console.log(text);
+    if(text === ""){
+      this.setState({
+        text: "",
+        keywordOpen: "close"
+      })
+      return;
+    }
+    this.setState({
+      text: text,
+      keywordOpen: ""
+    })
+    fetch('http://localhost:3000/eb/pro_list/search/' + text,{
+      method:'GET',
+      mode: "cors",
+    })
+    .then(res=>res.json())
+    .then(textResults => this.setState({
+      textResults: textResults
+    }))
+    console.log(this.state.textResults)
+  }
+
+  //選擇推薦字
+  keywordDown = (evt) => {
+    let text = evt.target.dataset.text;
+    this.setState({
+      text: text,
+      keywordOpen : "close"
+    })
+  }
   render(){
     return(
       <React.Fragment>
         <div id="pro_search_bar">
-          <form>
+          <form className="input" onSubmit={this.onSearch}>
             <div id="search_input">
-                <i className="fas fa-search"></i><input />
+                <i className="fas fa-search"></i><input type="text" onChange={this.searchBar} value={this.state.text}/>
+                
+            </div>
+            <div className="keyword">
+                  {this.state.textResults.map((text, i) =>
+                    <div key={i} className={"text_results" + " " + this.state.keywordOpen} onClick={this.keywordDown} data-text={text.PRO_NAME}>{text.PRO_NAME}</div>
+                    )}
             </div>
           </form>
             <div id="sel_city" className={"sel" + " " + this.state.openCity} onClick={this.openCity}>
@@ -197,11 +252,11 @@ class SearchBar extends Component{
             <div id="sel_price" className={"sel" + " " + this.state.openPrice} onClick={this.openPrice}>
               <div className="first" data-value="5000">{this.state.nowPrice}</div>
               <div className={"option" +" " + this.state.openPrice}>
-                <div className="" data-value="5000" data-text="全部" onClick={this.selPrice}>全部</div>
-                <div className="" data-value="300" data-text="300以下" onClick={this.selPrice}>300以下</div>
-                <div className="" data-value="450" data-text="450以下" onClick={this.selPrice}>450以下</div>
-                <div className="" data-value="600" data-text="600以下" onClick={this.selPrice}>600以下</div>
-                <div className="" data-value="750" data-text="750以下" onClick={this.selPrice}>750以下</div>
+                <div className="" data-value="" data-text="全部" onClick={this.selPrice}>全部</div>
+                <div className="" data-value="&& p.`PRICE` <= 300" data-text="300以下" onClick={this.selPrice}>300以下</div>
+                <div className="" data-value="&& p.`PRICE` <= 450" data-text="450以下" onClick={this.selPrice}>450以下</div>
+                <div className="" data-value="&& p.`PRICE` <= 600" data-text="600以下" onClick={this.selPrice}>600以下</div>
+                <div className="" data-value="&& p.`PRICE` >= 600" data-text="600以上" onClick={this.selPrice}>600以上</div>
               </div>
             </div>
             <button id="search-btn" onClick={this.onSearch}>搜尋</button>

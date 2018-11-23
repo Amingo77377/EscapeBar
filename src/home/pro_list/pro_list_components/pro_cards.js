@@ -46,7 +46,7 @@ class ProCards extends Component{
                     <div className="enter-btn"><p>查看更多</p></div>
                   </div>
                   <div className="card_foot">
-                    <div className="card_city">{card.city_id}台北市</div>
+                    <div className="card_city">{card.city_name}</div>
                     <div className="card_time">{card.GAME_TIME}分鐘</div>
                     <div className="card_price">$ {card.PRICE}起</div>
                   </div>

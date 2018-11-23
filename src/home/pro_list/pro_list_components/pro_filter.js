@@ -31,7 +31,7 @@ class ProFilter extends Component{
               <div className='' data-value="=12" data-text="嘉義市" onClick={this.selCity}>嘉義市</div>
               <div className='' data-value="=14" data-text="台南市" onClick={this.selCity}>台南市</div>
               <div className='' data-value="=15" data-text="高雄市" onClick={this.selCity}>高雄市</div>
-              <div></div>
+              <div className="ghost"></div>
             </div>
           </div>
           <div>
@@ -51,7 +51,7 @@ class ProFilter extends Component{
               <div className="" data-value="=11" data-text="勾心鬥角" onClick={this.selCate}>勾心鬥角</div>
               <div className="" data-value="=12" data-text="團隊合作" onClick={this.selCate}>團隊合作</div>
               <div className="" data-value="=13" data-text="親子同遊" onClick={this.selCate}>親子同遊</div>
-              <div></div>
+              <div className="ghost"></div>
             </div>
           </div>
           <div>
@@ -68,7 +68,7 @@ class ProFilter extends Component{
               <div className="" data-value="&& p.`PEOPLE_MIN` <= 8 && 8 <= p.`PEOPLE_MAX`" data-text="8人" onClick={this.selPeople}>8人</div>
               <div className="" data-value="&& p.`PEOPLE_MIN` <= 9 && 9 <= p.`PEOPLE_MAX`" data-text="9人" onClick={this.selPeople}>9人</div>
               <div className="" data-value="&& p.`PEOPLE_MIN` <= 10 && 10 <= p.`PEOPLE_MAX`" data-text="10人" onClick={this.selPeople}>10人</div>
-              <div></div>
+              <div className="ghost"></div>
             </div>
           </div>
           <div>
@@ -78,7 +78,7 @@ class ProFilter extends Component{
               <div className="" data-value="300" data-text="300以下" onClick={this.selPrice}>300以下</div>
               <div className="" data-value="450" data-text="450以下" onClick={this.selPrice}>450以下</div>
               <div className="" data-value="600" data-text="600以下" onClick={this.selPrice}>600以下</div>
-              <div className="" data-value="750" data-text="750以下" onClick={this.selPrice}>750以下</div>
+              <div className="" data-value="750" data-text="600以上" onClick={this.selPrice}>600以上</div>
             </div>
           </div>
         </div>
