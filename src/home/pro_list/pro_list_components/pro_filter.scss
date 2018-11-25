@@ -34,7 +34,13 @@
                 text-indent: 25px;
                 line-height: 31.66px;
                 cursor: pointer;
+                -webkit-user-select: none;   /* for Chrome */
+                -moz-user-select: none;  /* for Firefox */ 
                 // text-align: center;
+            }
+            div.checked{
+                background: url(../../../images/checked.png)no-repeat left center;
+                background-size: 20px;
             }
             .ghost{
                 cursor: auto;

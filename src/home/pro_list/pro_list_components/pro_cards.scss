@@ -124,9 +124,11 @@
         }
       }
       .pro_card_none{
-        width: 250px;
-        // visibility: hidden;
+        width: 21%;
+        min-width: 250px;
+        visibility: hidden;
         height: 30px;
+        margin: 25px 2%;
         border: 1px solid #aaa;
       }
     }

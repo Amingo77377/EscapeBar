@@ -69,6 +69,8 @@
         border-radius: 5px;
         background: url(../../../images/down_arrow.svg) no-repeat right 5px center;
         background-size: 12px;
+        -webkit-user-select: none;   /* for Chrome */
+        -moz-user-select: none;  /* for Firefox */ 
         cursor: pointer;
         .first{
             height: 32px;
@@ -132,6 +134,8 @@
             border-radius: 5px;
             color: #fff;
             cursor: pointer;
+            -webkit-user-select: none;   /* for Chrome */
+            -moz-user-select: none;  /* for Firefox */ 
         }
     
    

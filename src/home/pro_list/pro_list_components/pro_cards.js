@@ -12,13 +12,16 @@ class ProCards extends Component{
   }
 
   makeSpace = () => {
+
     let spaceNumber =this.props.products.length % 4 ;
-    let space = [];
-    for(let i = 1; i <= spaceNumber; i++){
-      space.push('');
+    if(spaceNumber === 0){
+      return null
     }
-    space.map((i) => <div className="pro_card_none" key={`n${i}`}>{i}</div>);
-    console.log('makeSpace');
+    let space = [];
+    for(let i = 1; i <= (4-spaceNumber); i++){
+      space.push(<div className="pro_card_none" key={`n${i}`}>{i}</div>);
+    }
+    return space
   }
   render(){
     return(
@@ -43,7 +46,7 @@ class ProCards extends Component{
                       <li>宮廷劇情</li>
                       <li>宮廷劇情</li>
                     </ul>
-                    <div className="enter-btn"><p>查看更多</p></div>
+                    {/* <div className="enter-btn"><p>查看更多</p></div> */}
                   </div>
                   <div className="card_foot">
                     <div className="card_city">{card.city_name}</div>
@@ -53,7 +56,7 @@ class ProCards extends Component{
                 </div>
               </div>
             )}
-            
+            {this.makeSpace()}
           </div>
         </div>
       </React.Fragment>
