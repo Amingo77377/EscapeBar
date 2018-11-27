@@ -11,21 +11,50 @@ const CITY_LIST = [
   {id:"10", name: "南投縣"},
   {id:"12", name: "嘉義市"},
   {id:"14", name: "台南市"},
-  {id:"15", name: "高雄市"},
+  {id:"15", name: "高雄市"}
 ]
-
-const myFetch = async (url) => {
-  let res = await fetch (url, {
-    method:'GET',
-    mode: "cors",
-      // body: JSON.stringify(data),
-      // headers: new Headers({
-      //   'Content-Type':'application/json'
-      // })
-  })
-  let result = await res.json()
-  return result
-}
+const CATE_LIST = [
+  {id:"1", name: "新手入門"},
+  {id:"2", name: "中度玩家"},
+  {id:"3", name: "重度解謎"},
+  {id:"4", name: "偵探推理"},
+  {id:"5", name: "機關重重"},
+  {id:"6", name: "劇情厲害"},
+  {id:"7", name: "場景逼真"},
+  {id:"8", name: "輕鬆歡樂"},
+  {id:"9", name: "恐怖驚悚"},
+  {id:"10", name: "緊張刺激"},
+  {id:"11", name: "勾心鬥角"},
+  {id:"12", name: "團隊合作"},
+  {id:"13", name: "親子同遊"}
+]
+const PEO_LIST = [
+  {id:"1", name: "1人"},
+  {id:"2", name: "2人"},
+  {id:"3", name: "3人"},
+  {id:"4", name: "4人"},
+  {id:"5", name: "5人"},
+  {id:"6", name: "6人"},
+  {id:"7", name: "7人"},
+  {id:"8", name: "8人"},
+  {id:"9", name: "9人"},
+  {id:"10", name: "10人"}
+]
+const PRICE_LIST = [
+  
+]
+// const myFetch = async (url) => {
+//   let res = await fetch (url, {
+//     method:'GET',
+//     mode: "cors",
+//       body: JSON.stringify(data),
+//       headers: new Headers({
+//         'Content-Type':'application/json'
+//       })
+//   })
+//   let result = await res.json()
+//   return result
+// }
 
 class ProFilter extends Component{
   constructor(props){
@@ -34,27 +63,63 @@ class ProFilter extends Component{
     this.state = {
       checkCityAll: false,
       checkCity: "",
-      cityCheckList: CITY_LIST.map(c => false)
+      cityCheckList: CITY_LIST.map(c => false),
+      checkCateAll: false,
+      checkCate:"",
+      cateCheckList: CATE_LIST.map(c => false),
+      checkPeoAll: false,
+      checkPeo:"",
+      peoCheckList: CATE_LIST.map(c => false),
+      price: "",
     }
-
   }
-  search = async (query) => {
-    if (!query) {
-      return
-    }
-    let data = await myFetch('http://localhost:3000/eb/pro_list/filter/' + query)
-    console.log(data)
-  }
-  makeQueryString = (list) => {
+  // search = async (query) => {
+  //   console.log(query)
+  //   if (!query) {
+  //     return
+  //   }
+  //   let data = await myFetch('http://localhost:3000/eb/pro_list/filter/' + query)
+  //   console.log(data)
+  // }
+  makeQueryString = () => {
     // let cityCheckList = this.state.cityCheckList
-    let queries = []
-    CITY_LIST.map((city, index) => {
-      if (list[index]) {
-        queries.push("m.`city_id`= " + city.id)
+    let cities = this.makeCityString()
+    let categories = this.makeCateString()
+    let people = this.makePeoString()
+    let price = this.state.price
+    console.log(cities + categories + people + price)
+    let str = cities + categories + people + price
+    this.props.filter(str)
+  }
+  makeCateString = () => {
+    let  categories = []
+    CATE_LIST.map((cate, index) => {
+      if (this.state.cateCheckList[index]) {
+        categories.push("cate.`PRO_CATE`= " + cate.id)
       }
-      return ''
     })
-    return queries.join(' || ')
+    let str
+    if(categories.length === 0 || categories.length === CATE_LIST.length){
+      str = ""
+    }else{
+      str = `&& (${categories.join(' || ')}) `
+    }
+    return str
+  }
+  makeCityString = () => {
+    let cities = []
+    CITY_LIST.map((city, index) => {
+      if (this.state.cityCheckList[index]) {
+        cities.push("m.`city_id`= " + city.id)
+      }
+    })
+    let str
+    if(cities.length === 0 || cities.length === CITY_LIST.length){
+      str = ""
+    }else{
+      str = `&& (${cities.join(' || ')}) `
+    }
+    return str
   }
   cityAll = () => {
     let check
@@ -64,48 +129,25 @@ class ProFilter extends Component{
       check = false
     }
     let list = this.state.cityCheckList.map(() => check)
-    let query = this.makeQueryString(list)
-    let search = this.search
     this.setState({
       checkCityAll: check,
       cityCheckList: list
-    }, () => {
-      search(query)
+    }
+    , () => {
+      this.makeQueryString()
     })
-    // if(this.state.checkCityAll === ""){
-    //   this.setState({
-    //     checkCityAll: "checked",
-    //     checkCity: "checked"
-    //   })
-    // }else{
-    //   this.setState({
-    //     checkCityAll: "",
-    //     checkCity: ""
-    //   })
-    // }
   }
-  multiCheck = (index) => {
+  cityClick = (index) => {
     let list = this.state.cityCheckList.slice()
     list[index] = !list[index]
     let all = true
     list.map(l => all = all && l)
-    let query = this.makeQueryString(list)
-    let search = this.search
     this.setState({
       cityCheckList: list,
       checkCityAll: all
     }, () => {
-      search(query)
+      this.makeQueryString()
     })
-    // if(evt.target.className === "checked"){
-    //   evt.target.className="";
-    //   this.setState({
-    //     checkCityAll: ""
-    //   })
-    // }else{
-    //   evt.target.className="checked"
-      
-    // }
   }
   makeCityFilter = () => {
     let {
@@ -115,12 +157,12 @@ class ProFilter extends Component{
       let className = cityCheckList[index] ? "checked" : ""
       return(
         <div
-          key={`尋找黑桃${index}`}
+          key={`cityf${index}`}
           className={className}
           data-value={city.id}
           data-text={city.name}
           onClick={() => {
-            this.multiCheck(index)
+            this.cityClick(index)
           }}>
             {city.name}
           </div>
@@ -128,16 +170,139 @@ class ProFilter extends Component{
     })
     return filter
   }
+  cateAll = () => {
+    let check
+    if (!this.state.checkCateAll) {
+      check = true
+    } else {
+      check = false
+    }
+    let list = this.state.cateCheckList.map(() => check)
+    this.setState({
+      checkCateAll: check,
+      cateCheckList: list
+    }, () => {
+      this.makeQueryString()
+    })
+  }
+  cateClick = (index) => {
+    let list = this.state.cateCheckList.slice()
+    list[index] = !list[index]
+    let all = true
+    list.map(l => all = all && l)
 
+    this.setState({
+      cateCheckList: list,
+      checkCateAll: all
+    }, () => {
+      this.makeQueryString()
+    })
+  }
+  makeCateFilter = () => {
+    let{
+      cateCheckList
+    }= this.state;
+    let filter = CATE_LIST.map((cate, index) => {
+        let className = cateCheckList[index] ? "checked" : "";
+        return(
+          <div
+          key={`catef${index}`}
+          className={className}
+          data-value={cate.id}
+          data-text={cate.name}
+          onClick={() => {
+            this.cateClick(index)
+          }}>
+            {cate.name}
+          </div>
+        )
+    })
+    return filter;
+  }
+  peoAll = () => {
+    let check
+    if (!this.state.checkPeoAll) {
+      check = true
+    } else {
+      check = false
+    }
+    let list = this.state.peoCheckList.map(() => check)
+    this.setState({
+      checkPeoAll: check,
+      peoCheckList: list,
+    }, () => {
+      this.makeQueryString()
+    })
+  }
+  peoClick = (index) => {
+    let list = this.state.peoCheckList.slice()
+    list[index] = !list[index]
+    let all = true
+    list.map(l => all = all && l)
+    this.setState({
+      peoCheckList: list,
+      checkPeoAll: all,
+    }, () => {
+      this.makeQueryString()
+    })
+  }
+  makePeoString = () => {
+    let people = []
+    PEO_LIST.map((peo, index) => {
+      if(this.state.peoCheckList[index]){
+        people.push(peo.id)
+      }
+    })
+    let str = ""
+    if(people.length === 0 || people.length === PEO_LIST.length){
+      return ''
+    }else{
+      str = "&& (p.`PEOPLE_MIN` <= " + people[0] + " && " + people[people.length-1] + " <= p.`PEOPLE_MAX`) "
+    }
+    return str
+  }
+  makePeoFilter = () => {
+    let {
+      peoCheckList
+    } = this.state
+    let filter = PEO_LIST.map((peo, index) => {
+      let className = peoCheckList[index] ? "checked" : ""
+      return(
+        <div
+          key={`peof${index}`}
+          className={className}
+          data-value={peo.id}
+          data-text={peo.name}
+          onClick={() => {
+            this.peoClick(index)
+          }}>
+            {peo.name}
+          </div>
+      )
+    })
+    return filter
+  }
+  priceClick = (evt) => {
+    let price = evt.target.dataset.value
+    this.setState({
+      price: price
+    }, () => {
+      this.makeQueryString()
+    })
+
+  }
   render(){
-    let checkAllClassName = this.state.checkCityAll ? "checked" : ""
+    let cityAllClassName = this.state.checkCityAll ? "checked" : ""
+    let cateAllClassName = this.state.checkCateAll ? "checked" : ""
+    let peoAllClassName = this.state.checkPeoAll ? "checked" : ""
+    let priceClassName = this.state.checkPrice ? "checked": ""
     return(
       <React.Fragment>
         <div id="pro_filter">
           <div>
             <h4>所在地區</h4>
             <div id="city_filter" className="filter">
-              <div className={checkAllClassName} data-value=">=1" data-text="" onClick={this.cityAll}>全部</div>
+              <div className={cityAllClassName} data-value=">=1" data-text="" onClick={this.cityAll}>全部</div>
               {this.makeCityFilter()}
               <div className="ghost"></div>
             </div>
@@ -145,56 +310,33 @@ class ProFilter extends Component{
           <div>
             <h4>遊戲類型</h4>
             <div id="cate_filter" className="filter">
-              <div className={this.state.check} data-value=">=1" data-text="全部" onClick={this.selCate}>全部</div>
-              <div className={this.state.check} data-value="=1" data-text="新手入門" onClick={this.selCate}>新手入門</div>
-              <div className={this.state.check} data-value="=2" data-text="中度玩家" onClick={this.selCate}>中度玩家</div>
-              <div className={this.state.check} data-value="=3" data-text="重度解謎" onClick={this.selCate}>重度解謎</div>
-              <div className={this.state.check} data-value="=4" data-text="偵探推理" onClick={this.selCate}>偵探推理</div>
-              <div className={this.state.check} data-value="=5" data-text="機關重重" onClick={this.selCate}>機關重重</div>
-              <div className={this.state.check} data-value="=6" data-text="劇情厲害" onClick={this.selCate}>劇情厲害</div>
-              <div className={this.state.check} data-value="=7" data-text="場景逼真" onClick={this.selCate}>場景逼真</div>
-              <div className={this.state.check} data-value="=8" data-text="輕鬆歡樂" onClick={this.selCate}>輕鬆歡樂</div>
-              <div className={this.state.check} data-value="=9" data-text="恐怖驚悚" onClick={this.selCate}>恐怖驚悚</div>
-              <div className={this.state.check} data-value="=10" data-text="緊張刺激" onClick={this.selCate}>緊張刺激</div>
-              <div className={this.state.check} data-value="=11" data-text="勾心鬥角" onClick={this.selCate}>勾心鬥角</div>
-              <div className={this.state.check} data-value="=12" data-text="團隊合作" onClick={this.selCate}>團隊合作</div>
-              <div className={this.state.check} data-value="=13" data-text="親子同遊" onClick={this.selCate}>親子同遊</div>
+              <div className={cateAllClassName} data-value=">=1" data-text="全部" onClick={this.cateAll}>全部</div>
+              {this.makeCateFilter()}
               <div className="ghost"></div>
             </div>
           </div>
           <div>
             <h4>適合人數</h4>
             <div id="people_filter" className="filter">
-              <div className={this.state.check} data-value="" data-text="不限" onClick={this.selPeople}>不限</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 1 && 1 <= p.`PEOPLE_MAX`" data-text="1人" onClick={this.selPeople}>1人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 2 && 2 <= p.`PEOPLE_MAX`" data-text="2人" onClick={this.selPeople}>2人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 3 && 3 <= p.`PEOPLE_MAX`" data-text="3人" onClick={this.selPeople}>3人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 4 && 4 <= p.`PEOPLE_MAX`" data-text="4人" onClick={this.selPeople}>4人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 5 && 5 <= p.`PEOPLE_MAX`" data-text="5人" onClick={this.selPeople}>5人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 6 && 6 <= p.`PEOPLE_MAX`" data-text="6人" onClick={this.selPeople}>6人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 7 && 7 <= p.`PEOPLE_MAX`" data-text="7人" onClick={this.selPeople}>7人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 8 && 8 <= p.`PEOPLE_MAX`" data-text="8人" onClick={this.selPeople}>8人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 9 && 9 <= p.`PEOPLE_MAX`" data-text="9人" onClick={this.selPeople}>9人</div>
-              <div className={this.state.check} data-value="&& p.`PEOPLE_MIN` <= 10 && 10 <= p.`PEOPLE_MAX`" data-text="10人" onClick={this.selPeople}>10人</div>
+              <div className={peoAllClassName} data-value="" data-text="不限" onClick={this.peoAll}>不限</div>
+              {this.makePeoFilter()}
               <div className="ghost"></div>
             </div>
           </div>
           <div>
             <h4>價格範圍</h4>
             <div id="price_filter" className="filter">
-              <div className={this.state.check} data-value="5000" data-text="不限" onClick={this.selPrice}>不限</div>
-              <div className={this.state.check} data-value="300" data-text="300以下" onClick={this.selPrice}>300以下</div>
-              <div className={this.state.check} data-value="450" data-text="450以下" onClick={this.selPrice}>450以下</div>
-              <div className={this.state.check} data-value="600" data-text="600以下" onClick={this.selPrice}>600以下</div>
-              <div className={this.state.check} data-value="750" data-text="600以上" onClick={this.selPrice}>600以上</div>
+              <div className={priceClassName} data-value="" data-text="不限" onClick={this.priceClick}>不限</div>
+              <div className={priceClassName} data-value="&& p.`PRICE` <= 300" data-text="300以下" onClick={this.priceClick}>300以下</div>
+              <div className={priceClassName} data-value="&& p.`PRICE` <= 450" data-text="450以下" onClick={this.priceClick}>450以下</div>
+              <div className={priceClassName} data-value="&& p.`PRICE` <= 600" data-text="600以下" onClick={this.priceClick}>600以下</div>
+              <div className={priceClassName} data-value="&& p.`PRICE` >= 600" data-text="600以上" onClick={this.priceClick}>600以上</div>
             </div>
           </div>
         </div>
       </React.Fragment>
     )
   }
-
-
 }
 
 export default ProFilter;

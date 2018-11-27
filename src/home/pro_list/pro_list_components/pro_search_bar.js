@@ -37,7 +37,23 @@ class SearchBar extends Component{
     console.log("text:" + this.state.text)
     this.props.search(this.state);
   }
-
+  
+  //type初始化
+  typeChange = () => {
+    // if(this.props.type === "filter"){
+    //   this.setState({
+    //     nowCity: "選擇縣市",
+    //     nowCate: "選擇類別",
+    //     nowPeople: "選擇人數",
+    //     nowPrice: "價格範圍",
+    //     city: ">=1",
+    //     cate: ">=1",
+    //     people: "", 
+    //     price: "",
+    //     text: "",
+    //   })
+    // }
+  }
   //縣市下拉選單
   openCity = () => {
     if(this.state.openCity === ""){
@@ -191,6 +207,7 @@ class SearchBar extends Component{
   render(){
     return(
       <React.Fragment>
+        {this.typeChange()}
         <div id="pro_search_bar">
           <form className="input" onSubmit={this.onSearch}>
             <div id="search_input">

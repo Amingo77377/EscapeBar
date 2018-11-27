@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import './pro_list.scss';
 import { SearchBar,
          ProFilter,
@@ -12,7 +13,8 @@ class ProList extends Component{
     super(props)
     this.state = {
       products: [],
-      records: []
+      records: [],
+      type:""
     }
 
   }
@@ -35,18 +37,30 @@ class ProList extends Component{
     .then(products => this.setState({
       products:products,
       records: data,
+      type: "search"
     }));
     // .then(products => getProducts = products)
     console.log("products:" + JSON.stringify(this.state.products));
     console.log("records:" + this.state.records.city);
   }
+  filter = (str) => {
+    fetch('http://localhost:3000/eb/pro_list/filter/' + str ,{
+      method:'GET',
+      mode:'cors',
+    })
+    .then(res => res.json())
+    .then(products => this.setState({
+      products: products,
+      type: "filter"
+    }))
+  }
   render(){
     return(
       <React.Fragment>
         <div id="pro_list">
-          <SearchBar search={this.search}/>
+          <SearchBar search={this.search} type={this.state.type}/>
           <div className="w80">
-            <ProFilter />
+            <ProFilter filter={this.filter} type={this.state.type}/>
             <ProSort />
             <ProCards products={this.state.products}/>
             <ProCategories />
