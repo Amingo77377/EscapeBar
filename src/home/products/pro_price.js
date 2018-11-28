@@ -19,7 +19,7 @@ class PRO_PRICE extends Component{
                 <div id="pro_price">
                     <div id="price">
                         <p>每人</p>
-                        <p id="price_p">$600 起</p>
+                        <p id="price_p">${this.props.price} 起</p>
                     </div>
                     <div className="w60">
                         <button>我要預約</button>

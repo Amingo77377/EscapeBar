@@ -89,6 +89,9 @@ class ProFilter extends Component{
     let price = this.state.price
     console.log(cities + categories + people + price)
     let str = cities + categories + people + price
+    if(!str){
+      return
+    }
     this.props.filter(str)
   }
   makeCateString = () => {

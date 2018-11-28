@@ -1,54 +1,52 @@
 import React, {Component} from 'react';
 import './products.scss';
-import PRO_SLIDER from './pro_slider.js';
-import PRO_NAME from './pro_name.js';
-import PRO_INFO from './pro_info.js';
-import PRO_PRICE from './pro_price.js';
-import PRO_MAP from './pro_map.js';
-import PRO_SHARE from './pro_share.js';
-import PRO_MANU from './pro_manu.js';
-import PRO_COMMENT from './pro_comment.js';
-import PRO_BUY_RULE from './pro_buy_rule.js';
-import PRO_STOCK from './pro_stock.js';
-import PRO_AD from './pro_ad.js';
+import ProSlider from './pro_slider.js';
+import ProName from './pro_name.js';
+import ProInfo from './pro_info.js';
+import ProPrice from './pro_price.js';
+import ProMap from './pro_map.js';
+import ProShare from './pro_share.js';
+import ProManu from './pro_manu.js';
+import ProComment from './pro_comment.js';
+import ProBuyRule from './pro_buy_rule.js';
+import ProStock from './pro_stock.js';
+import ProAd from './pro_ad.js';
 
 class Products extends Component{
     constructor(props){
         super(props)
-        // this.ID = props.match.params.ID;
+        this.ID = props.match.params.ID;
+        this.state = {
+            data: this.props.location.state.id
+        }
     }
-
-    componentDidMount(){
-        // console.log("app componentDidMount")
-    }
-    
     render(){
         return(
             <React.Fragment>
                 <div id="products">
-                    <PRO_SLIDER />
+                    <ProSlider id={this.state.data.PRO_SEQ}/>
                     <div id="pro_body">
                         <div className="pro_body_l">
-                            <PRO_NAME />
-                            <PRO_INFO />
+                            <ProName data={this.state.data}/>
+                            <ProInfo info={this.state.data.PRO_INFO}/>
                             {/* <PRO_COMMENT/> */}
-                            <PRO_BUY_RULE/>
+                            <ProBuyRule/>
                         </div>
                         <div className="pro_body_r">
-                            <PRO_PRICE />
-                            <PRO_MAP />
-                            <PRO_SHARE />
-                            <PRO_MANU />
-                            <PRO_STOCK />
+                            <ProPrice price={this.state.data.PRICE}/>
+                            <ProMap data={this.state.data}/>
+                            <ProShare data={this.state.data}/>
+                            <ProManu data={this.state.data}/>
+                            <ProStock data={this.state.data}/>
                         </div>
                         <div className="pro_body_l">
-                            {/* <PRO_COMMENT/> */}
-                            {/* <PRO_BUY_RULE/> */}
+                            {/* <ProComment/> */}
+                            {/* <ProBuyRule/> */}
                         </div>
                         <div className="pro_body_r">
-                            {/* <PRO_STOCK /> */}
+                            {/* <ProStock /> */}
                         </div>
-                        {/* <PRO_AD /> */}
+                        {/* <ProAd /> */}
                     </div>
                   
                 </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './pro_cards.scss';
 
 
@@ -29,13 +29,16 @@ class ProCards extends Component{
       <React.Fragment>
         <div id="pro_cards">
           <div className="card_rows">
-          <Link to="/products">123</Link>
             {this.props.products.map(card =>
-              
-                <div className="pro_card" key={card.PRO_SEQ}>
-                  <div className="workshop_logo"></div>
+                <NavLink className="pro_card" key={card.PRO_SEQ} to={{
+                  pathname: `/products/${card.PRO_SEQ}`,
+                  state: {id: card}
+                }}>
+                  <div className="workshop_logo" style={{ backgroundImage: `url(${require('../../../images/c_img/'+ card.c_logo)})`}}>
+                    {/* <img src={require(`../../../images/c_img/${card.c_logo}`)}/> */}
+                  </div>
                   <div className="card_frame">
-                    <div className="pro_main_img">
+                    <div className="pro_main_img" style={{ backgroundImage: `url(${require('../../../images/p_img/'+ card.IMG_NAME)})`}}>
                       <div className="favor-btn"></div>
                     </div>
                     <div className="card_body">
@@ -57,8 +60,7 @@ class ProCards extends Component{
                       <div className="card_price">$ {card.PRICE}起</div>
                     </div>
                   </div>
-                </div>
-              // </Link>
+                </NavLink>
             )}
             {this.makeSpace()}
           </div>

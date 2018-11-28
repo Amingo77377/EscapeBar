@@ -9,9 +9,10 @@ class PRO_NAME extends Component {
     }
 
     render() {
+        // console.log(this.props.data[0])
         return (
             <div id="pro_name">
-                <h2>台北最新好評密室逃脫！壞主意工作室【腦細胞入侵】</h2>
+                <h2>{this.props.data.PRO_NAME}</h2>
                 <div>
                     <div className="jc_sb">
                         <ul>
@@ -24,10 +25,10 @@ class PRO_NAME extends Component {
                             <option value="taichung">台中館</option>
                         </select>
                     </div>
-                    <div>遊戲地點：台北市<button id="map_btn">map</button></div>
-                    <div>遊戲時間：</div>
-                    <div>適合人數：</div>
-                    <div>連絡電話：</div>
+                    <div>遊戲地點：{this.props.data.city_name}<button id="map_btn">map</button></div>
+                    <div>遊戲時間：{this.props.data.GAME_TIME}分鐘</div>
+                    <div>適合人數：{this.props.data.PEOPLE_MIN}~{this.props.data.PEOPLE_MAX}人</div>
+                    <div>連絡電話：{this.props.data.s_tel}</div>
                 </div>
             </div>
         );

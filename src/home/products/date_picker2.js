@@ -95,9 +95,9 @@ class DatePicker2 extends Component {
       <React.Fragment>
         <div id='date_picker'>
           <div id="calendar_title">
-            <i id="month_min" class="fas fa-angle-left" onClick={this.monthMinus1}></i>
+            <i id="month_min" className="fas fa-angle-left" onClick={this.monthMinus1}></i>
             <h5>{currentYear}年{currentMonth + 1}月</h5>
-            <i id="month_plus" class="fas fa-angle-right" onClick={this.monthPlus1}></i>
+            <i id="month_plus" className="fas fa-angle-right" onClick={this.monthPlus1}></i>
           </div>
           <table>
             <thead>

@@ -41,6 +41,7 @@ class ProList extends Component{
     }));
     // .then(products => getProducts = products)
     console.log("products:" + JSON.stringify(this.state.products));
+    console.log(this.state.products)
     console.log("records:" + this.state.records.city);
   }
   filter = (str) => {
