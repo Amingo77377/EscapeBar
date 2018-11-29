@@ -42,7 +42,7 @@ class ProList extends Component{
     // .then(products => getProducts = products)
     console.log("products:" + JSON.stringify(this.state.products));
     console.log(this.state.products)
-    console.log("records:" + this.state.records.city);
+    console.log("records:" + this.state.records);
   }
   filter = (str) => {
     fetch('http://localhost:3000/eb/pro_list/filter/' + str ,{

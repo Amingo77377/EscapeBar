@@ -34,22 +34,29 @@ class DatePicker2 extends Component {
     totalDays = monthData[currentMonth]
 
     for (let i = 0; i < weekday; i++) {
-      currentWeekDays.push('')
+      currentWeekDays.push({day:"", className:""})
     }
     for (let j = 1; j <= totalDays; j++) {
       if (currentWeekDays.length >= 7) {
         month.push(currentWeekDays)
         currentWeekDays = createWeekDays()
       }
-      currentWeekDays.push(j)
+      let cn = (this.props.stock.map() === '2018-12-14') ? "YES" : "NO"
+      // if(this.props.stock.map(stock => stock.DATE === '2018-12-14', 
+      //   )){
+      //     currentWeekDays.push({day:j, className:'YES'})
+      //   }else{
+      //     currentWeekDays.push({day:j, className:'NO'})
+      //   }
+      currentWeekDays.push({day:j, className:cn})
     }
     while (currentWeekDays.length < 7) {
-      currentWeekDays.push('')
+      currentWeekDays.push({day:"", className:""})
     }
     month.push(currentWeekDays)
     let calendar = month.map((week, i) => (
       <tr className={'weeks'} key={`w${i}`}>
-        {week.map((day, j) => (<td key={`${i}${j}`}>{day}</td>))}
+        {week.map((day, j) => (<td className={day.className} key={`${i}${j}`}>{day.day}</td>))}
       </tr>))
     return (calendar)
   }
@@ -87,6 +94,7 @@ class DatePicker2 extends Component {
   }
 
   render () {
+    // console.log("DATE:"+this.props.stock)
     let {
       currentYear,
       currentMonth

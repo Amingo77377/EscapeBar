@@ -23,10 +23,11 @@ class PRO_STOCK extends Component{
           stock: stock,
         }))
       }
+    //   console.log("stock:"+ this.state.stock.map(a=> a.DATE ?))
     }
     render(){
         this.getStock()
-        console.log("stock:"+ this.state.stock)
+        
         return(
             <React.Fragment>
                 <div id="pro_stock">
