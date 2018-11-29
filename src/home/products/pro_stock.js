@@ -7,15 +7,26 @@ class PRO_STOCK extends Component{
     constructor(props){
         super(props)
         this.state = {
-            number: 0
+            number: 0,
+            stock: []
         }
-
     }
-    componentDidUpdate(){
-        
+    getStock = () => {
+        let pid = this.props.pid
+      if(this.state.stock.length === 0){
+        fetch('http://localhost:3000/eb/pro_list/products/stock/' + pid ,{
+          method:'GET',
+          mode:'cors',
+        })
+        .then(res => res.json())
+        .then(stock => this.setState({
+          stock: stock,
+        }))
+      }
     }
-
     render(){
+        this.getStock()
+        console.log("stock:"+ this.state.stock)
         return(
             <React.Fragment>
                 <div id="pro_stock">
@@ -28,7 +39,7 @@ class PRO_STOCK extends Component{
                     </div>
                     <div id="pro_stock_date">
                         <h4>預約日期與時段</h4>
-                        <DatePicker2 />
+                        <DatePicker2 stock={this.state.stock}/>
                         <ul>
                             <li>
                                 <div className="unchecked"></div>
@@ -76,10 +87,10 @@ class PRO_STOCK extends Component{
                     </div>
                     
                 </div>
-                <div id="pro_stock_price" className="d-flex">
+                <div id="pro_stock_price" className="dd-flex">
                     <div id="title">
                         <p>您選擇的遊戲為</p>
-                        <div className="d-flex">
+                        <div className="dd-flex">
                         <h4 id="">productName</h4>-<h4 id="">場館</h4>
                         </div>       
                     </div>
@@ -88,7 +99,7 @@ class PRO_STOCK extends Component{
                         <h4>$1,200</h4>
                     </div>    
                 </div>
-                <div id="pro_stock_buy" className="d-flex">
+                <div id="pro_stock_buy" className="dd-flex">
                     <div id="join-btn">我要揪團</div>
                     <div id="buy-btn">立即預約</div>
                 </div>

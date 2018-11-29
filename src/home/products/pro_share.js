@@ -19,7 +19,7 @@ class PRO_SHARE extends Component{
                 <div id="pro_share">
                     <div id="favor">
                         <div id="add_favor">
-                            <img src={require("../../images/favor2.png")} alt=""/>
+                            <img src={require("../../images/favor.png")} alt=""/>
                             <p>加入收藏</p>
                         </div>
                         <div id="add_record">
