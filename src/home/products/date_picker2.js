@@ -41,14 +41,14 @@ class DatePicker2 extends Component {
         month.push(currentWeekDays)
         currentWeekDays = createWeekDays()
       }
-      let cn = (this.props.stock.map() === '2018-12-14') ? "YES" : "NO"
+      // let cn = (this.props.stock.map() === '2018-12-14') ? "YES" : "NO"
       // if(this.props.stock.map(stock => stock.DATE === '2018-12-14', 
       //   )){
       //     currentWeekDays.push({day:j, className:'YES'})
       //   }else{
       //     currentWeekDays.push({day:j, className:'NO'})
       //   }
-      currentWeekDays.push({day:j, className:cn})
+      currentWeekDays.push({day:j, className:""})
     }
     while (currentWeekDays.length < 7) {
       currentWeekDays.push({day:"", className:""})

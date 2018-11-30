@@ -14,9 +14,10 @@ class App extends Component {
         {/* <Switch> */}
           {/* <ProList/> */}
           {/* <Route exact path="/" component={ProList} /> */}
+          123
           {/* <Route path="/products/:ID" component={Products} />  */}
         {/* </Switch> */}
-          <ProBuy />
+          {/* <ProBuy /> */}
         </div>
       </BrowserRouter>
     );

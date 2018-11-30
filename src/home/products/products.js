@@ -40,7 +40,8 @@ class Products extends Component{
                             <ProStock pid={this.state.data.PRO_SEQ}/>
                         </div>
                         <div className="pro_body_l">
-                            {/* <ProComment/> */}
+                            {/* <ProComment id={this.state.data.id/> */}
+                            
                             {/* <ProBuyRule/> */}
                         </div>
                         <div className="pro_body_r">
