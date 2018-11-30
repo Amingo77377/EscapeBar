@@ -1,0 +1,18 @@
+#pro_buy{
+  width: 100%;
+  background-color: #F9F9F9;
+  // box-sizing: border-box;
+  #buy_body80{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    margin-top: 50px;
+    .body_l{
+      width: 60%;
+      margin-right: 5%;
+    }
+    .body_r{
+      width: 35%;
+    }
+  }
+}

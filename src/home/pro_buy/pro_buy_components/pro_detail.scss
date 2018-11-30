@@ -1,0 +1,67 @@
+#pro_detail{
+  width: 100%;
+  .pro_img{
+    width: 100%;
+    height: 33vh;
+    border: 1px solid red;
+    min-height: 250px;
+    border-radius: 5px;
+  }
+  .detail_frame{
+    border: 1px solid #B0ABAB;
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    h3{
+      margin: 0;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .game_date{
+      background-color: #98CE00;
+      margin: auto;
+      width: 70%;
+      height: 50px;
+      border-radius: 10px;
+     
+    }
+    .number_price{
+      width: 100%;
+      margin: 5px 0;
+      table{
+        width: 70%;
+        margin: auto;
+        border-collapse: collapse;
+        th{
+          font-weight: 400;
+          padding: 5px 0;
+          color: #656565;
+        }
+        td{
+          border-top: 1px solid #707070;
+          border-bottom: 1px solid #707070;
+          padding: 5px 0;
+          color: #656565;
+          text-align: center;
+        }
+      }
+     
+    }
+    p{
+      font-size: .9rem;
+      color: #656565;
+      text-align: center;
+    }
+    .game_address{
+      width: 70%;
+      margin: 10px auto;
+      color: #656565;
+    }
+    h4{
+      margin: 10px 20px;
+      text-align: right;
+      color: #F00A6B;
+      font-size: 1.4rem;
+    }
+  }
+}

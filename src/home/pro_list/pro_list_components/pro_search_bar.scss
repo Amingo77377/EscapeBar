@@ -3,7 +3,7 @@
     position: fixed;
     z-index: 100;
     top: 0;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     padding: 15px 0;
     height: 60px;
     display: flex;
@@ -62,7 +62,7 @@
         }
     }
     .sel{
-        box-sizing: border-box;
+        // box-sizing: border-box;
         width: 100px;
         height: 32px;
         border: 1px solid #B0ABAB;
@@ -79,10 +79,11 @@
             line-height: 32px;
         }
         .option{
-            width: 100%;
+            width: 100px;
             // height: 0;
             overflow: hidden;
             text-align: center;
+            transform: translateX(-1px);
             div{
                 height: 0;
                 
@@ -117,15 +118,6 @@
     #sel_cate{
         // width: 120px;
     }
-
-
-
-
-
-
-
-
-
         #search-btn{
             width:75px;
             height: 30px;

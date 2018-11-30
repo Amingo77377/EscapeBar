@@ -1,0 +1,27 @@
+#buyer_info{
+  width: 100%;
+  border: 1px solid #aaa;
+  h3{
+    margin: 0;
+    font-size: 2rem;
+  }
+  #info_form{
+    padding-left: 100px;
+    display: flex;
+    .for_label{
+      display: flex;
+      flex-direction: column;
+      label{
+        span{
+          color: red;
+        }
+      }
+    }
+    .for_input{
+      input{
+      
+      }
+    }
+    
+  }
+}
