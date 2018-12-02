@@ -41,7 +41,11 @@ const PEO_LIST = [
   {id:"10", name: "10人"}
 ]
 const PRICE_LIST = [
-  
+  {id:"&& p.`PRICE` >= 0", name: "不限"},
+  {id:"&& p.`PRICE` <= 300", name:"300以下"},
+  {id:"&& p.`PRICE` <= 450", name:"450以下"},
+  {id:"&& p.`PRICE` <= 600", name:"600以下"},
+  {id:"&& p.`PRICE` >= 600", name:"600以上"}
 ]
 // const myFetch = async (url) => {
 //   let res = await fetch (url, {
@@ -55,7 +59,6 @@ const PRICE_LIST = [
 //   let result = await res.json()
 //   return result
 // }
-
 class ProFilter extends Component{
   constructor(props){
 
@@ -71,6 +74,7 @@ class ProFilter extends Component{
       checkPeo:"",
       peoCheckList: CATE_LIST.map(c => false),
       price: "",
+      priceCheckList: PRICE_LIST.map(c => false)
     }
   }
   // search = async (query) => {
@@ -285,20 +289,44 @@ class ProFilter extends Component{
     })
     return filter
   }
-  priceClick = (evt) => {
-    let price = evt.target.dataset.value
+  priceClick = (index) => {
+    let list = this.state.priceCheckList.slice()
+    list = list.map( c => c = false)
+    list[index] = !list[index]
+    let price = PRICE_LIST[index].id
+    if(!list[index]){
+      price = ""
+    }
+    console.log("list:"+list)
+    // console.log("[price]:"+price)
     this.setState({
+      priceCheckList: list,
       price: price
     }, () => {
       this.makeQueryString()
     })
-
+  }
+  makePriceFilter = () => {
+    let {priceCheckList} = this.state
+    let filter = PRICE_LIST.map((price,index) => {
+      let className = priceCheckList[index] ? "checked" : ""
+      return (
+        <div
+          key={`pricef${index}`}
+          className={className}
+          data-value={price.id}
+          data-text={price.name}
+          onClick={() => this.priceClick(index)}
+        >{price.name}</div>
+      )
+    })
+    return filter
   }
   render(){
     let cityAllClassName = this.state.checkCityAll ? "checked" : ""
     let cateAllClassName = this.state.checkCateAll ? "checked" : ""
     let peoAllClassName = this.state.checkPeoAll ? "checked" : ""
-    let priceClassName = this.state.checkPrice ? "checked": ""
+    // let priceClassName = this.state.checkPrice ? "checked": ""
     return(
       <React.Fragment>
         <div id="pro_filter">
@@ -329,11 +357,12 @@ class ProFilter extends Component{
           <div>
             <h4>價格範圍</h4>
             <div id="price_filter" className="filter">
-              <div className={priceClassName} data-value="" data-text="不限" onClick={this.priceClick}>不限</div>
+              {this.makePriceFilter()}
+              {/* <div className={priceClassName} data-value="" data-text="不限" onClick={this.priceClick}>不限</div>
               <div className={priceClassName} data-value="&& p.`PRICE` <= 300" data-text="300以下" onClick={this.priceClick}>300以下</div>
               <div className={priceClassName} data-value="&& p.`PRICE` <= 450" data-text="450以下" onClick={this.priceClick}>450以下</div>
               <div className={priceClassName} data-value="&& p.`PRICE` <= 600" data-text="600以下" onClick={this.priceClick}>600以下</div>
-              <div className={priceClassName} data-value="&& p.`PRICE` >= 600" data-text="600以上" onClick={this.priceClick}>600以上</div>
+              <div className={priceClassName} data-value="&& p.`PRICE` >= 600" data-text="600以上" onClick={this.priceClick}>600以上</div> */}
             </div>
           </div>
         </div>

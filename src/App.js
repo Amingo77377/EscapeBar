@@ -13,11 +13,10 @@ class App extends Component {
         <div className="App">
         {/* <Switch> */}
           {/* <ProList/> */}
-          {/* <Route exact path="/" component={ProList} /> */}
-          123
-          {/* <Route path="/products/:ID" component={Products} />  */}
+          <Route exact path="/" component={ProList} />
+          <Route exact path="/products/:ID" component={Products} /> 
+          <Route path="/products/reservation/:ID" component={ProBuy} />
         {/* </Switch> */}
-          {/* <ProBuy /> */}
         </div>
       </BrowserRouter>
     );

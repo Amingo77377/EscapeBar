@@ -130,13 +130,14 @@
 #pro_stock_buy{
     margin-top: 10px;
     justify-content: space-between;
-    div{
+    .buy-btn{
         background-color: #F7882F;
         margin: 0 10px;
         width: 40%;
         height: 40px;
         border-radius: 5px;
-        cursor: pointer;
+        // cursor: pointer;
+        text-decoration: none;
         font-size: 1.2rem;
         color: #fff;
         font-weight: 700;

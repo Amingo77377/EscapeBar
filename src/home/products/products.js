@@ -37,7 +37,7 @@ class Products extends Component{
                             <ProMap data={this.state.data}/>
                             <ProShare data={this.state.data}/>
                             <ProManu data={this.state.data}/>
-                            <ProStock pid={this.state.data.PRO_SEQ}/>
+                            <ProStock data={this.state.data}/>
                         </div>
                         <div className="pro_body_l">
                             {/* <ProComment id={this.state.data.id/> */}

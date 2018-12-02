@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import './pro_stock.scss';
-import DATE_PICKER from './date_picker.js'
+import DATE_PICKER from './date_picker.js';
 import DatePicker2 from './date_picker2.js';
+import {NavLink} from 'react-router-dom';
 
 class PRO_STOCK extends Component{
     constructor(props){
@@ -12,7 +13,7 @@ class PRO_STOCK extends Component{
         }
     }
     getStock = () => {
-        let pid = this.props.pid
+        let pid = this.props.data.PRO_SEQ
       if(this.state.stock.length === 0){
         fetch('http://localhost:3000/eb/pro_list/products/stock/' + pid ,{
           method:'GET',
@@ -23,7 +24,7 @@ class PRO_STOCK extends Component{
           stock: stock,
         }))
       }
-    //   console.log("stock:"+ this.state.stock.map(a=> a.DATE ?))
+    //    console.log("stock:"+ this.state.stock)
     }
     render(){
         this.getStock()
@@ -101,8 +102,11 @@ class PRO_STOCK extends Component{
                     </div>    
                 </div>
                 <div id="pro_stock_buy" className="dd-flex">
-                    <div id="join-btn">我要揪團</div>
-                    <div id="buy-btn">立即預約</div>
+                    <div className="buy-btn">我要揪團</div>
+                    <NavLink className="buy-btn" to={{
+                        pathname: `/products/reservation/${this.props.data.PRO_SEQ}`,
+                        state: {id : '1'}
+                        }}>立即預約</NavLink>
                 </div>
             </React.Fragment>
         )

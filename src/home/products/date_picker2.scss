@@ -48,6 +48,16 @@
                 min-width: 18;
                 width: 1rem;
                 text-align: right;
+                -moz-user-select: none;  /* for Firefox */ 
+                -webkit-user-select: none;   /* for Chrome */
+            }
+            td.yes{
+                color: #F00A6B;
+                cursor: pointer;
+                font-weight: 450;
+            }
+            td.no{
+                color: #bbb;
             }
         }
     }

@@ -241,20 +241,20 @@ class SearchBar extends Component{
             <div id="sel_cate" className={"sel" + " " + this.state.openCate} onClick={this.openCate} tabIndex={0} onBlur={this.close}>
               <div className="first" data-value=">=1">{this.state.nowCate}</div>
               <div className={"option" +" " + this.state.openCate}>
-                <div className="" data-value=">=1" data-text="不限" onClick={this.selCate}>不限</div>
-                <div className="" data-value="=1" data-text="新手入門" onClick={this.selCate}>新手入門</div>
-                <div className="" data-value="=2" data-text="中度玩家" onClick={this.selCate}>中度玩家</div>
-                <div className="" data-value="=3" data-text="重度解謎" onClick={this.selCate}>重度解謎</div>
-                <div className="" data-value="=4" data-text="偵探推理" onClick={this.selCate}>偵探推理</div>
-                <div className="" data-value="=5" data-text="機關重重" onClick={this.selCate}>機關重重</div>
-                <div className="" data-value="=6" data-text="劇情厲害" onClick={this.selCate}>劇情厲害</div>
-                <div className="" data-value="=7" data-text="場景逼真" onClick={this.selCate}>場景逼真</div>
-                <div className="" data-value="=8" data-text="輕鬆歡樂" onClick={this.selCate}>輕鬆歡樂</div>
-                <div className="" data-value="=9" data-text="恐怖驚悚" onClick={this.selCate}>恐怖驚悚</div>
-                <div className="" data-value="=10" data-text="緊張刺激" onClick={this.selCate}>緊張刺激</div>
-                <div className="" data-value="=11" data-text="勾心鬥角" onClick={this.selCate}>勾心鬥角</div>
-                <div className="" data-value="=12" data-text="團隊合作" onClick={this.selCate}>團隊合作</div>
-                <div className="" data-value="=13" data-text="親子同遊" onClick={this.selCate}>親子同遊</div>
+                <div className="" data-value="" data-text="不限" onClick={this.selCate}>不限</div>
+                <div className="" data-value="&& (f.`feature1` =1 || f.`feature2` =1 || f.`feature3` =1)" data-text="新手入門" onClick={this.selCate}>新手入門</div>
+                <div className="" data-value="&& (f.`feature1` =2 || f.`feature2` =2 || f.`feature3` =2)" data-text="中度玩家" onClick={this.selCate}>中度玩家</div>
+                <div className="" data-value="&& (f.`feature1` =3 || f.`feature2` =3 || f.`feature3` =3)" data-text="重度解謎" onClick={this.selCate}>重度解謎</div>
+                <div className="" data-value="&& (f.`feature1` =4 || f.`feature2` =4 || f.`feature3` =4)" data-text="偵探推理" onClick={this.selCate}>偵探推理</div>
+                <div className="" data-value="&& (f.`feature1` =5 || f.`feature2` =5 || f.`feature3` =5)" data-text="機關重重" onClick={this.selCate}>機關重重</div>
+                <div className="" data-value="&& (f.`feature1` =6 || f.`feature2` =6 || f.`feature3` =6)" data-text="劇情厲害" onClick={this.selCate}>劇情厲害</div>
+                <div className="" data-value="&& (f.`feature1` =7 || f.`feature2` =7 || f.`feature3` =7)" data-text="場景逼真" onClick={this.selCate}>場景逼真</div>
+                <div className="" data-value="&& (f.`feature1` =8 || f.`feature2` =8 || f.`feature3` =8)" data-text="輕鬆歡樂" onClick={this.selCate}>輕鬆歡樂</div>
+                <div className="" data-value="&& (f.`feature1` =9 || f.`feature2` =9 || f.`feature3` =9)" data-text="恐怖驚悚" onClick={this.selCate}>恐怖驚悚</div>
+                <div className="" data-value="&& (f.`feature1` =10 || f.`feature2` =10 || f.`feature3` =10)" data-text="緊張刺激" onClick={this.selCate}>緊張刺激</div>
+                <div className="" data-value="&& (f.`feature1` =11 || f.`feature2` =11 || f.`feature3` =11)" data-text="勾心鬥角" onClick={this.selCate}>勾心鬥角</div>
+                <div className="" data-value="&& (f.`feature1` =12 || f.`feature2` =12 || f.`feature3` =12)" data-text="團隊合作" onClick={this.selCate}>團隊合作</div>
+                <div className="" data-value="&& (f.`feature1` =13 || f.`feature2` =13 || f.`feature3` =13)" data-text="親子同遊" onClick={this.selCate}>親子同遊</div>
               </div>
             </div>
 

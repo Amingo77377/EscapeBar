@@ -27,7 +27,7 @@ class DatePicker2 extends Component {
     // createWeekDays = () => []
     let currentWeekDays = createWeekDays()
     let month = []
-
+    
     if (currentYear % 4 === 0) {
       monthData[1] = 29
     }
@@ -41,14 +41,19 @@ class DatePicker2 extends Component {
         month.push(currentWeekDays)
         currentWeekDays = createWeekDays()
       }
-      // let cn = (this.props.stock.map() === '2018-12-14') ? "YES" : "NO"
-      // if(this.props.stock.map(stock => stock.DATE === '2018-12-14', 
-      //   )){
-      //     currentWeekDays.push({day:j, className:'YES'})
-      //   }else{
-      //     currentWeekDays.push({day:j, className:'NO'})
-      //   }
-      currentWeekDays.push({day:j, className:""})
+      let gamedate = this.props.stock.find(game => {
+      //  console.log(`bbb:${new Date(game.DATE).getFullYear()}${new Date(game.DATE).getMonth()}${new Date(game.DATE).getDate()}`)
+        return (`${new Date(game.DATE).getFullYear()}${new Date(game.DATE).getMonth()}${new Date(game.DATE).getDate()}` === `${currentYear}${currentMonth}${j}` && game.STATUS === 'Y')
+      })
+      let cn ;
+      if(!gamedate){
+        cn = "no";
+        currentWeekDays.push({day:j, className:cn})
+      }else{
+        console.log("gamedate:"+gamedate)
+        cn = "yes";
+        currentWeekDays.push({day:j, className:cn})
+      }
     }
     while (currentWeekDays.length < 7) {
       currentWeekDays.push({day:"", className:""})
@@ -56,7 +61,7 @@ class DatePicker2 extends Component {
     month.push(currentWeekDays)
     let calendar = month.map((week, i) => (
       <tr className={'weeks'} key={`w${i}`}>
-        {week.map((day, j) => (<td className={day.className} key={`${i}${j}`}>{day.day}</td>))}
+        {week.map((day, j) => (<td onClick={this.selDate} className={day.className} key={`${i}${j}`}>{day.day}</td>))}
       </tr>))
     return (calendar)
   }
