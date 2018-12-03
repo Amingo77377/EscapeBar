@@ -57,34 +57,6 @@ class PRO_STOCK extends Component{
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div className="unchecked"></div>
-                                <div>10:00-12:00</div>
-                                <div className="number">
-                                    <div className="minus-btn">
-                                        <div className="mb1"></div>
-                                    </div>
-                                    {this.state.number}
-                                    <div className="plus-btn">
-                                        <div className=""></div>
-                                        <div className="pb1"></div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="unchecked"></div>
-                                <div>10:00-12:00</div>
-                                <div className="number">
-                                    <div className="minus-btn">
-                                        <div className="mb1"></div>
-                                    </div>
-                                    {this.state.number}
-                                    <div className="plus-btn">
-                                        <div className=""></div>
-                                        <div className="pb1"></div>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     

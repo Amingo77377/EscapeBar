@@ -21,9 +21,11 @@ class ProCategories extends Component{
     }, () => {
       this.props.search(this.state)
     })
+    
   }
   componentDidUpdate(){
     // this.ReactDOM.findDOMNode(this).scrollTop = 0
+    window.scrollTo(0,0)
   }
   render(){
     return(

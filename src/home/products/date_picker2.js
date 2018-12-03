@@ -12,7 +12,7 @@ class DatePicker2 extends Component {
       currentMonth
     }
   }
-  makeCanlendar = (callback) => {
+  makeCalendar = (callback) => {
     let monthData = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     let {
       currentYear,
@@ -61,7 +61,7 @@ class DatePicker2 extends Component {
     month.push(currentWeekDays)
     let calendar = month.map((week, i) => (
       <tr className={'weeks'} key={`w${i}`}>
-        {week.map((day, j) => (<td onClick={this.selDate} className={day.className} key={`${i}${j}`}>{day.day}</td>))}
+        {week.map((day, j) => (<td onClick={this.selDate} data-value={day.day} className={day.className} key={`${i}${j}`}>{day.day}</td>))}
       </tr>))
     return (calendar)
   }
@@ -97,7 +97,17 @@ class DatePicker2 extends Component {
       currentMonth: currentMonth
     })
   }
-
+  selDate = (evt) => {
+    let {
+      currentYear,
+      currentMonth
+    } = this.state
+    let day = evt.target.dataset.value
+    let stocks = this.props.stock.filter(date => {
+      return (`${new Date(date.DATE).getFullYear()}${new Date(date.DATE).getMonth()}${new Date(date.DATE).getDate()}` === `${currentYear}${currentMonth}${day}` && date.STATUS === 'Y')
+    })
+    
+  }
   render () {
     // console.log("DATE:"+this.props.stock)
     let {
@@ -125,7 +135,7 @@ class DatePicker2 extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.makeCanlendar()}
+              {this.makeCalendar()}
             </tbody>
           </table>
         </div>

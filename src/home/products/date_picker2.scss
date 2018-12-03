@@ -50,11 +50,13 @@
                 text-align: right;
                 -moz-user-select: none;  /* for Firefox */ 
                 -webkit-user-select: none;   /* for Chrome */
+                margin: 0 10px;
             }
             td.yes{
                 color: #F00A6B;
                 cursor: pointer;
                 font-weight: 450;
+                
             }
             td.no{
                 color: #bbb;
