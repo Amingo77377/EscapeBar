@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import './pro_list.scss';
 import { SearchBar,
          ProFilter,
-         ProSort,
          ProCards,
          ProCategories
  } from './pro_list_components/index.js'
@@ -13,17 +12,19 @@ class ProList extends Component{
     super(props)
     this.state = {
       products: [],
-      records: [],
-      type:""
+      records: {},
+      type:"search",
+      sort: ""
     }
-
-  }
-  componentDidUpdate(){
-        
   }
   search = (data) => {
+    this.setState({
+      type: "search"
+    })
     // let getProducts = [];
-    console.log(data)
+    data.sort = this.state.sort
+    // console.log("newData:"+newData)
+    console.log("data:"+data)
     console.log(JSON.stringify(data))
     fetch('http://localhost:3000/eb/pro_list/' + JSON.stringify(data),{
       method:'GET',
@@ -37,7 +38,6 @@ class ProList extends Component{
     .then(products => this.setState({
       products:products,
       records: data,
-      type: "search"
     }));
     // .then(products => getProducts = products)
     console.log("products:" + JSON.stringify(this.state.products));
@@ -45,6 +45,9 @@ class ProList extends Component{
     console.log("records:" + this.state.records);
   }
   filter = (str) => {
+    this.setState({
+      type: "filter"
+    })
     fetch('http://localhost:3000/eb/pro_list/filter/' + str ,{
       method:'GET',
       mode:'cors',
@@ -52,8 +55,16 @@ class ProList extends Component{
     .then(res => res.json())
     .then(products => this.setState({
       products: products,
-      type: "filter"
     }))
+  }
+  sort = (sort) => {
+    this.setState({
+      sort 
+    }, ()=> {
+      if(this.state.type === "search"){
+        this.search(this.state.records)
+      }
+    })
   }
   render(){
     return(
@@ -61,12 +72,9 @@ class ProList extends Component{
         <div id="pro_list">
           <SearchBar search={this.search} type={this.state.type}/>
           <div className="w80">
-            <ProFilter filter={this.filter} type={this.state.type}/>
-            <ProSort />
+            <ProFilter filter={this.filter} type={this.state.type} count={this.state.products.length} sort={this.sort}/>
             <ProCards products={this.state.products}/>
-            <ProCategories />
-            <br />
-            <br /><br /><br /><br /><br />
+            <ProCategories search={this.search}/>
           </div>
         </div>
       </React.Fragment>

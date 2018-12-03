@@ -74,7 +74,12 @@ class ProFilter extends Component{
       checkPeo:"",
       peoCheckList: CATE_LIST.map(c => false),
       price: "",
-      priceCheckList: PRICE_LIST.map(c => false)
+      priceCheckList: PRICE_LIST.map(c => false),
+      filterOpen: false,
+      sort: "",
+      sortOpen: "",
+      nowSort: "排序方式",
+      type: "filter"
     }
   }
   // search = async (query) => {
@@ -91,18 +96,22 @@ class ProFilter extends Component{
     let categories = this.makeCateString()
     let people = this.makePeoString()
     let price = this.state.price
-    console.log(cities + categories + people + price)
-    let str = cities + categories + people + price
+    let sort = this.state.sort
+    console.log(cities + categories + people + price + sort)
+    let str = cities + categories + people + price 
     if(!str){
       return
     }
-    this.props.filter(str)
+    this.setState({
+      type: "filter"
+    })
+    this.props.filter(str + sort)
   }
   makeCateString = () => {
     let  categories = []
     CATE_LIST.map((cate, index) => {
       if (this.state.cateCheckList[index]) {
-        categories.push("cate.`PRO_CATE`= " + cate.id)
+        categories.push("(f.`feature1`= " + cate.id + "|| f.`feature2`=" + cate.id + "|| f.`feature3`=" + cate.id + ") ")
       }
     })
     let str
@@ -322,47 +331,111 @@ class ProFilter extends Component{
     })
     return filter
   }
+  displayRes = () => {
+    if(this.props.count === 0){
+      return "沒有符合搜尋條件的遊戲，您可以試試進階搜尋~(或者吸貓貓)"
+    }
+    return `找到${this.props.count}款遊戲`
+  }
+  filterOpen = () => {
+    this.setState({
+      filterOpen: true
+    })
+  }
+  sortOpen = () => {
+    if(this.state.sortOpen === ""){
+      this.setState({
+        sortOpen: "open"
+      })
+      return
+    }
+    this.setState({
+      sortOpen: ""
+    })
+  }
+  sortClose = () => {
+    this.setState({
+      sortOpen: ""
+    })
+  }
+  selSort = (evt) => {
+    let sort = evt.target.dataset.value;
+    let nowSort = evt.target.dataset.text;
+    this.setState({
+      sort,
+      nowSort
+    }, () => {this.makeQueryString()})
+    this.props.sort(sort)
+  }
+  componentWillReceiveProps(){
+    if(this.props.type !== this.state.type && this.props.type !== "filter"){
+      this.setState({
+        checkCityAll: false,
+        checkCity: "",
+        cityCheckList: CITY_LIST.map(c => false),
+        checkCateAll: false,
+        checkCate:"",
+        cateCheckList: CATE_LIST.map(c => false),
+        checkPeoAll: false,
+        checkPeo:"",
+        peoCheckList: CATE_LIST.map(c => false),
+        price: "",
+        priceCheckList: PRICE_LIST.map(c => false),
+        type: "search"
+      })
+    }
+  }
   render(){
     let cityAllClassName = this.state.checkCityAll ? "checked" : ""
     let cateAllClassName = this.state.checkCateAll ? "checked" : ""
     let peoAllClassName = this.state.checkPeoAll ? "checked" : ""
-    // let priceClassName = this.state.checkPrice ? "checked": ""
+    let filtersClassName = this.state.filterOpen ? "" : "filter_open"
     return(
       <React.Fragment>
         <div id="pro_filter">
-          <div>
-            <h4>所在地區</h4>
-            <div id="city_filter" className="filter">
-              <div className={cityAllClassName} data-value=">=1" data-text="" onClick={this.cityAll}>全部</div>
-              {this.makeCityFilter()}
-              <div className="ghost"></div>
+          <div id="pro_filter_btns">
+            <h3 id="f_res">{this.displayRes()}</h3>
+            <div className={`advance_search-btn ${filtersClassName}`} onClick={this.filterOpen}>進階搜尋</div>
+            <div id="pro_sort" onClick={this.sortOpen} tabIndex={0} onBlur={this.sortClose}>
+              <div className="first">{this.state.nowSort}</div>
+              <div className={`option ${this.state.sortOpen}`}>
+                <div data-value="ORDER BY p.`HOT_INDEX` DESC " data-text="最受歡迎" onClick={this.selSort}>最受歡迎</div>
+                <div data-value="ORDER BY p.`HOT_INDEX` DESC " data-text="評價最高" onClick={this.selSort}>評價最高</div>
+                <div data-value="ORDER BY p.`PRICE` " data-text="價格由低到高" onClick={this.selSort}>價格由低到高</div>
+                <div data-value="ORDER BY p.`PRICE` DESC " data-text="價格由高到低" onClick={this.selSort}>價格由高到低</div>
+              </div>
             </div>
           </div>
-          <div>
-            <h4>遊戲類型</h4>
-            <div id="cate_filter" className="filter">
-              <div className={cateAllClassName} data-value=">=1" data-text="全部" onClick={this.cateAll}>全部</div>
-              {this.makeCateFilter()}
-              <div className="ghost"></div>
+          <div id="filters" className={filtersClassName}>
+            <div className="f-div">
+              <h4>所在地區</h4>
+              <div id="city_filter" className="filter">
+                <div className={cityAllClassName} data-value=">=1" data-text="" onClick={this.cityAll}>全部</div>
+                {this.makeCityFilter()}
+                <div className="ghost"></div>
+              </div>
             </div>
-          </div>
-          <div>
-            <h4>適合人數</h4>
-            <div id="people_filter" className="filter">
-              <div className={peoAllClassName} data-value="" data-text="不限" onClick={this.peoAll}>不限</div>
-              {this.makePeoFilter()}
-              <div className="ghost"></div>
+            <div className="f-div">
+              <h4>遊戲類型</h4>
+              <div id="cate_filter" className="filter">
+                <div className={cateAllClassName} data-value=">=1" data-text="全部" onClick={this.cateAll}>全部</div>
+                {this.makeCateFilter()}
+                <div className="ghost"></div>
+              </div>
             </div>
-          </div>
-          <div>
-            <h4>價格範圍</h4>
-            <div id="price_filter" className="filter">
-              {this.makePriceFilter()}
-              {/* <div className={priceClassName} data-value="" data-text="不限" onClick={this.priceClick}>不限</div>
-              <div className={priceClassName} data-value="&& p.`PRICE` <= 300" data-text="300以下" onClick={this.priceClick}>300以下</div>
-              <div className={priceClassName} data-value="&& p.`PRICE` <= 450" data-text="450以下" onClick={this.priceClick}>450以下</div>
-              <div className={priceClassName} data-value="&& p.`PRICE` <= 600" data-text="600以下" onClick={this.priceClick}>600以下</div>
-              <div className={priceClassName} data-value="&& p.`PRICE` >= 600" data-text="600以上" onClick={this.priceClick}>600以上</div> */}
+            <div className="f-div">
+              <h4>適合人數</h4>
+              <div id="people_filter" className="filter">
+                <div className={peoAllClassName} data-value="" data-text="不限" onClick={this.peoAll}>不限</div>
+                {this.makePeoFilter()}
+                <div className="ghost"></div>
+              </div>
+            </div>
+            <div className="f-div">
+              <h4>價格範圍</h4>
+              <div id="price_filter" className="filter">
+                {this.makePriceFilter()}
+              </div>
             </div>
           </div>
         </div>

@@ -8,22 +8,20 @@ class SearchBar extends Component{
       openCity: "",
       city: ">=1",
       nowCity: "選擇縣市",
-
       openCate: "",
       cate: ">=1",
       nowCate: "選擇類別",
-
       openPeople: "",
       people: "", 
       nowPeople: "選擇人數",
-
       openPrice: "",
       price: "",
       nowPrice: "價格範圍",
-
       text: "",
       textResults: [],
-      keywordOpen: ""
+      keywordOpen: "",
+      sort: "",
+      type:"search"
     }
     
   }
@@ -35,24 +33,29 @@ class SearchBar extends Component{
     console.log("people:" + this.state.people)
     console.log("price:" + this.state.price)
     console.log("text:" + this.state.text)
+    console.log("sortStr" + this.state.sortStr)
+    this.setState({
+      type: "search"
+    })
     this.props.search(this.state);
   }
   
   //type初始化
   typeChange = () => {
-    // if(this.props.type === "filter"){
-    //   this.setState({
-    //     nowCity: "選擇縣市",
-    //     nowCate: "選擇類別",
-    //     nowPeople: "選擇人數",
-    //     nowPrice: "價格範圍",
-    //     city: ">=1",
-    //     cate: ">=1",
-    //     people: "", 
-    //     price: "",
-    //     text: "",
-    //   })
-    // }
+    if(this.props.type !== this.state.type){
+      this.setState({
+        nowCity: "選擇縣市",
+        nowCate: "選擇類別",
+        nowPeople: "選擇人數",
+        nowPrice: "價格範圍",
+        city: ">=1",
+        cate: ">=1",
+        people: "", 
+        price: "",
+        text: "",
+        type: "filter"
+      })
+    }
   }
   //縣市下拉選單
   openCity = () => {
@@ -148,18 +151,6 @@ class SearchBar extends Component{
     })
     console.log(this.state.price);
   }
-  
-  // mDown = () => {
-  //   let win = document.window;
-  //   win.addEventListener("mouseDown", () => {
-  //     this.setState({
-  //       openCity: "",
-  //       openCate: "",
-  //       openPeople: "",
-  //       openPrice: "",
-  //     })
-  //   })
-  // }
 
   //輸入搜尋bar
   searchBar = (evt) => {
@@ -190,6 +181,7 @@ class SearchBar extends Component{
   //選擇推薦字
   keywordDown = (evt) => {
     let text = evt.target.dataset.text;
+    console.log("Text:"+ text)
     this.setState({
       text: text,
       keywordOpen : "close"
@@ -201,18 +193,37 @@ class SearchBar extends Component{
       openCate: "",
       openPeople:"",
       openPrice:"",
-      keywordOpen : "close"
+      // keywordOpen : "close"
     })
+    setTimeout(()=>{
+      this.setState({
+        keywordOpen : "close"
+      })
+    }, 100)
+  }
+  componentWillReceiveProps(){
+    if(this.props.type !== this.state.type){
+      this.setState({
+        nowCity: "選擇縣市",
+        nowCate: "選擇類別",
+        nowPeople: "選擇人數",
+        nowPrice: "價格範圍",
+        city: ">=1",
+        cate: ">=1",
+        people: "", 
+        price: "",
+        text: "",
+        type: "filter"
+      })
+    }
   }
   render(){
     return(
       <React.Fragment>
-        {this.typeChange()}
         <div id="pro_search_bar">
           <form className="input" onSubmit={this.onSearch}>
             <div id="search_input">
                 <i className="fas fa-search"></i><input type="text" onChange={this.searchBar} value={this.state.text} tabIndex={0} onBlur={this.close}/>
-                
             </div>
             <div className="keyword">
                   {this.state.textResults.map((text, i) =>
@@ -242,19 +253,19 @@ class SearchBar extends Component{
               <div className="first" data-value=">=1">{this.state.nowCate}</div>
               <div className={"option" +" " + this.state.openCate}>
                 <div className="" data-value="" data-text="不限" onClick={this.selCate}>不限</div>
-                <div className="" data-value="&& (f.`feature1` =1 || f.`feature2` =1 || f.`feature3` =1)" data-text="新手入門" onClick={this.selCate}>新手入門</div>
-                <div className="" data-value="&& (f.`feature1` =2 || f.`feature2` =2 || f.`feature3` =2)" data-text="中度玩家" onClick={this.selCate}>中度玩家</div>
-                <div className="" data-value="&& (f.`feature1` =3 || f.`feature2` =3 || f.`feature3` =3)" data-text="重度解謎" onClick={this.selCate}>重度解謎</div>
-                <div className="" data-value="&& (f.`feature1` =4 || f.`feature2` =4 || f.`feature3` =4)" data-text="偵探推理" onClick={this.selCate}>偵探推理</div>
-                <div className="" data-value="&& (f.`feature1` =5 || f.`feature2` =5 || f.`feature3` =5)" data-text="機關重重" onClick={this.selCate}>機關重重</div>
-                <div className="" data-value="&& (f.`feature1` =6 || f.`feature2` =6 || f.`feature3` =6)" data-text="劇情厲害" onClick={this.selCate}>劇情厲害</div>
-                <div className="" data-value="&& (f.`feature1` =7 || f.`feature2` =7 || f.`feature3` =7)" data-text="場景逼真" onClick={this.selCate}>場景逼真</div>
-                <div className="" data-value="&& (f.`feature1` =8 || f.`feature2` =8 || f.`feature3` =8)" data-text="輕鬆歡樂" onClick={this.selCate}>輕鬆歡樂</div>
-                <div className="" data-value="&& (f.`feature1` =9 || f.`feature2` =9 || f.`feature3` =9)" data-text="恐怖驚悚" onClick={this.selCate}>恐怖驚悚</div>
-                <div className="" data-value="&& (f.`feature1` =10 || f.`feature2` =10 || f.`feature3` =10)" data-text="緊張刺激" onClick={this.selCate}>緊張刺激</div>
-                <div className="" data-value="&& (f.`feature1` =11 || f.`feature2` =11 || f.`feature3` =11)" data-text="勾心鬥角" onClick={this.selCate}>勾心鬥角</div>
-                <div className="" data-value="&& (f.`feature1` =12 || f.`feature2` =12 || f.`feature3` =12)" data-text="團隊合作" onClick={this.selCate}>團隊合作</div>
-                <div className="" data-value="&& (f.`feature1` =13 || f.`feature2` =13 || f.`feature3` =13)" data-text="親子同遊" onClick={this.selCate}>親子同遊</div>
+                <div className="" data-value="&& (f.`feature1` =1 || f.`feature2` =1 || f.`feature3` =1) " data-text="新手入門" onClick={this.selCate}>新手入門</div>
+                <div className="" data-value="&& (f.`feature1` =2 || f.`feature2` =2 || f.`feature3` =2) " data-text="中度玩家" onClick={this.selCate}>中度玩家</div>
+                <div className="" data-value="&& (f.`feature1` =3 || f.`feature2` =3 || f.`feature3` =3) " data-text="重度解謎" onClick={this.selCate}>重度解謎</div>
+                <div className="" data-value="&& (f.`feature1` =4 || f.`feature2` =4 || f.`feature3` =4) " data-text="偵探推理" onClick={this.selCate}>偵探推理</div>
+                <div className="" data-value="&& (f.`feature1` =5 || f.`feature2` =5 || f.`feature3` =5) " data-text="機關重重" onClick={this.selCate}>機關重重</div>
+                <div className="" data-value="&& (f.`feature1` =6 || f.`feature2` =6 || f.`feature3` =6) " data-text="劇情厲害" onClick={this.selCate}>劇情厲害</div>
+                <div className="" data-value="&& (f.`feature1` =7 || f.`feature2` =7 || f.`feature3` =7) " data-text="場景逼真" onClick={this.selCate}>場景逼真</div>
+                <div className="" data-value="&& (f.`feature1` =8 || f.`feature2` =8 || f.`feature3` =8) " data-text="輕鬆歡樂" onClick={this.selCate}>輕鬆歡樂</div>
+                <div className="" data-value="&& (f.`feature1` =9 || f.`feature2` =9 || f.`feature3` =9) " data-text="恐怖驚悚" onClick={this.selCate}>恐怖驚悚</div>
+                <div className="" data-value="&& (f.`feature1` =10 || f.`feature2` =10 || f.`feature3` =10) " data-text="緊張刺激" onClick={this.selCate}>緊張刺激</div>
+                <div className="" data-value="&& (f.`feature1` =11 || f.`feature2` =11 || f.`feature3` =11) " data-text="勾心鬥角" onClick={this.selCate}>勾心鬥角</div>
+                <div className="" data-value="&& (f.`feature1` =12 || f.`feature2` =12 || f.`feature3` =12) " data-text="團隊合作" onClick={this.selCate}>團隊合作</div>
+                <div className="" data-value="&& (f.`feature1` =13 || f.`feature2` =13 || f.`feature3` =13) " data-text="親子同遊" onClick={this.selCate}>親子同遊</div>
               </div>
             </div>
 
