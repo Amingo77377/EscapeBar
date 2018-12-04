@@ -7,12 +7,15 @@ class DatePicker2 extends Component {
     let now = new Date()
     let currentYear = now.getFullYear()
     let currentMonth = now.getMonth()
+    // let dayArray = []
     this.state = {
       currentYear,
-      currentMonth
+      currentMonth,
+      dayArray: [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
     }
   }
   makeCalendar = (callback) => {
+    let tdClassName 
     let monthData = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     let {
       currentYear,
@@ -32,7 +35,6 @@ class DatePicker2 extends Component {
       monthData[1] = 29
     }
     totalDays = monthData[currentMonth]
-
     for (let i = 0; i < weekday; i++) {
       currentWeekDays.push({day:"", className:""})
     }
@@ -50,7 +52,7 @@ class DatePicker2 extends Component {
         cn = "no";
         currentWeekDays.push({day:j, className:cn})
       }else{
-        console.log("gamedate:"+gamedate)
+        // console.log("gamedate:"+gamedate)
         cn = "yes";
         currentWeekDays.push({day:j, className:cn})
       }
@@ -61,7 +63,8 @@ class DatePicker2 extends Component {
     month.push(currentWeekDays)
     let calendar = month.map((week, i) => (
       <tr className={'weeks'} key={`w${i}`}>
-        {week.map((day, j) => (<td onClick={this.selDate} data-value={day.day} className={day.className} key={`${i}${j}`}>{day.day}</td>))}
+        {week.map((day, index) => 
+          (<td onClick={this.selDate} data-value={day.day} className={day.className+ " " + (this.state.dayArray[day.day]?"current":"")} key={`${i}${index}`}>{day.day}</td>))}
       </tr>))
     return (calendar)
   }
@@ -100,16 +103,26 @@ class DatePicker2 extends Component {
   selDate = (evt) => {
     let {
       currentYear,
-      currentMonth
+      currentMonth,
     } = this.state
     let day = evt.target.dataset.value
+    let dayArray = this.state.dayArray.slice()
+    dayArray = dayArray.map(c => c = false)
+    dayArray[day] = true
+    this.setState({
+      dayArray
+    })
     let stocks = this.props.stock.filter(date => {
       return (`${new Date(date.DATE).getFullYear()}${new Date(date.DATE).getMonth()}${new Date(date.DATE).getDate()}` === `${currentYear}${currentMonth}${day}` && date.STATUS === 'Y')
     })
-    
+    // if(stocks.length === 0){
+    //   return
+    // }
+    this.props.selDate(stocks)
   }
   render () {
-    // console.log("DATE:"+this.props.stock)
+    // console.log("dayArray:"+this.state.dayArray)
+    // let tdClassName = this.state.dayArray[] ? "current" : ""
     let {
       currentYear,
       currentMonth

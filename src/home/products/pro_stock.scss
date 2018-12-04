@@ -5,7 +5,6 @@
     border: 1px solid #B0ABAB;
     overflow: hidden;
     #pro_stock_place{
-        
         text-align: center;
         box-sizing: border-box;
         padding-top: 10px;
@@ -32,7 +31,7 @@
             padding: 0;
             margin: 0;
             li{
-                border: 1px solid #B0ABAB;
+                border-top: 1px solid #B0ABAB;
                 background-color: #EFEFEF;
                 height: 40px;
                 width: 100%;
@@ -41,22 +40,25 @@
                 align-items: center;
                 justify-content: space-around;
                 .unchecked{
-                    width: 15px;
-                    height: 15px;
-                    border: 1px solid #B0ABAB;
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid #3DB39E;
                     border-radius: 50%;
                 }
                 .checked{
-                    width: 15px;
-                    height: 15px;
-                    border: 1px solid #F00A6B;
+                    width: 22px;
+                    height: 22px;
+                    background-image: url(../../images/checked.png);
+                    background-size: 22px;
                     border-radius: 50%;
                 }
                 .number{
                     display: flex;
                     align-items: center;
                     .minus-btn{
-                        margin: 0 20px;
+                        box-sizing: content-box;
+                        margin: 0 10px;
+                        padding: 10px;
                         cursor: pointer;
                         width: 20px;
                         height: 20px;
@@ -71,6 +73,7 @@
                         }
                     }
                     .plus-btn{
+                        box-sizing: content-box;
                         width: 20px;
                         height: 20px;
                         margin: 0 10px;
@@ -82,6 +85,7 @@
                         align-items: center;
                         div{
                             position: absolute;
+                            // left: 10px;
                             width: 18px;
                             height: 3px;
                             border-radius: 1.5px;
@@ -92,6 +96,9 @@
                         }
                     }
                 }
+            }
+            li.checked{
+                background-color: #fff;
             }
         }
     }
