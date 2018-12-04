@@ -5,21 +5,28 @@
     height: 300px;
     position: relative;
     overflow: hidden;
-    .l_btn_next{
-        // z-index: 2;
+    .l_btn{
+        width: 40%;
         position: absolute;
-        right: 0;
-        top: 50%;
+        line-height: 300px;
         cursor: pointer;
+        height: 100%;
+        transition: .3s;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
+    .l_btn_next{
+        right: 0;
+        text-align: right;
+    }
+    .l_btn_next:hover{
+        // background-color: rgba($color: #000000, $alpha: .1);
     }
     .l_btn_prev{
-        // z-index: 2;
-        position: absolute;
-        top: 50%;
         left: 0;
-        cursor: pointer;
     }
     ul{
+        // width: 100%;
         margin: 0;
         padding: 0;
         display: flex;
@@ -29,11 +36,12 @@
         // transition: .5s;
         left: -100%;
         li{
-            width: 100vw;
+            width: 48vw;
             height: 300px;
             // background-color: #ccc;
             background-size: contain;
             background-repeat: no-repeat;
+            background-position: center;
             transition: .5s;
         }
     }

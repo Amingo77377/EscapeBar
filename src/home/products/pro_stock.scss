@@ -106,6 +106,7 @@
 }
 #pro_stock_price{
     margin-top: 10px;
+    // display: none;
     width: 100%;
     background-color: #EFEFEF;
     border-radius: 5px;
@@ -133,6 +134,9 @@
             color: #F00A6B
         }
     }
+}
+#pro_stock_price.none{
+    display: none;
 }
 #pro_stock_buy{
     margin-top: 10px;

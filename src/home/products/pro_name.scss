@@ -1,5 +1,9 @@
 #pro_name{
     // width: 100%;
+    h2{
+        font-size: 2.5rem;
+        margin-bottom: 0;
+    }
     div{
         // box-sizing: border-box;
         // padding: 5px;
@@ -7,32 +11,40 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        ul{
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 5px 0 20px 0;
-            li{
-                margin-right: 10px;
-                color: #876633;
-                border: 1px solid #876633;
-                border-radius: 12.5px;
-                font-weight: 800;
-                width: 70px;
+            ul{
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 5px 0 20px 0;
+                li{
+                    margin-right: 10px;
+                    // color: #876633;
+                    // color: #E8A53D;
+                    color: #C09147;
+                    border: 1.5px solid #C09147;
+                    border-radius: 12.5px;
+                    font-weight: 800;
+                    width: 70px;
+                    height: 25px;
+                    text-align: center;
+                }
+            }
+            select{
                 height: 25px;
-                text-align: center;
+                margin-right: 20px;
             }
         }
-        select{
-            height: 25px;
-            margin-right: 20px;
-        }
-        .map_btn{
-            width: 22.5px;
-            height: 22.5px;
+        .img_info{
+            display: flex;
+            .info{
+                .info_list{
+                    margin: 5px 0;
+                    text-indent: 2rem;
+                }
+            }
             
         }
+
     }
     
 }

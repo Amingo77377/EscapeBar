@@ -48,9 +48,9 @@ class ProCards extends Component{
                       {/* <comment /> */}
                       <div>評分%%%%</div>
                       <ul>
-                        <li>{card.feature1}</li>
-                        <li>{card.feature2}</li>
-                        <li>{card.feature3}</li>
+                        <li>{card.f1}</li>
+                        <li>{card.f2}</li>
+                        <li>{card.f3}</li>
                       </ul>
                       {/* <div className="enter-btn"><p>查看更多</p></div> */}
                     </div>

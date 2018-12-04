@@ -14,7 +14,8 @@ class PRO_STOCK extends Component{
             stock: [],
             nowStocks: [],
             nowArray: [],
-            nowDate: ""
+            nowDate: "",
+            totalPriceShow : false
         }
     }
     getStock = () => {
@@ -38,7 +39,8 @@ class PRO_STOCK extends Component{
             number: 0,
             nowStocks: stocks,
             nowArray,
-            nowDate: nowDate
+            nowDate: nowDate,
+            totalPriceShow: false
         })
         console.log("nowArray:"+nowDate)
     }
@@ -55,7 +57,8 @@ class PRO_STOCK extends Component{
         nowArray = nowArray.map(c => c = false)
         nowArray[index] = true
         this.setState({
-            nowArray
+            nowArray,
+            totalPriceShow: true
         }, () => {
             if(number <= 0){
                 this.setState({
@@ -103,6 +106,7 @@ class PRO_STOCK extends Component{
     }
     render(){
         let price = this.state.number*this.state.data.PRICE
+        let totalPriceShow = this.state.totalPriceShow ? "" : "none"
         // let number = this.state.nowArray ? this.state.number : 0
         this.getStock()
         return(
@@ -139,7 +143,7 @@ class PRO_STOCK extends Component{
                     </div>
                     
                 </div>
-                <div id="pro_stock_price" className="dd-flex">
+                <div id="pro_stock_price" className={`dd-flex ${totalPriceShow}`}>
                     <div id="title">
                         <p>您選擇的遊戲為:</p>
                         <div className="dd-flex">

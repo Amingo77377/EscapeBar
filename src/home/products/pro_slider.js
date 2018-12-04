@@ -16,13 +16,13 @@ class PRO_SLIDER extends Component{
         slider.classList.add("trans");
         let first_child = slider.firstChild;
         // slider.append(first_child);
-        slider.style.left = -winWidth*2+ 'px';
+        slider.style.left = -winWidth*2*0.48+ 'px';
             // slider.style.left = winWidth*i + 'px';
         setTimeout(function a(){
             slider.classList.remove("trans");
             slider.append(first_child);
-            slider.style.left = -winWidth+ 'px';
-        },500);
+            slider.style.left = -winWidth*0.48+ 'px';
+        }, 500);
     }
     l_sliderPrev = () =>{
         let winWidth = window.innerWidth;
@@ -35,8 +35,8 @@ class PRO_SLIDER extends Component{
         setTimeout(function b(){
             slider.classList.remove("trans");
             slider.prepend(last_child);
-            slider.style.left = -winWidth + 'px';
-        },500);
+            slider.style.left = -winWidth*0.48 + 'px';
+        }, 500);
     }
     do = () => {
       let id = this.props.id;
@@ -47,7 +47,22 @@ class PRO_SLIDER extends Component{
       .then(res => res.json())
       .then(img => this.setState({
         img:img
+      }, () => {
+        if(this.state.img.length < 2){
+            let {img} = this.state
+            img.push(img[0], img[0])
+            this.setState({
+                img
+            })
+        }else if(this.state.img.length < 3){
+            let {img} = this.state
+            img.push(img[0])
+            this.setState({
+                img
+            })
+        }
       }))
+
     }
     componentWillMount(){
         this.do()
@@ -61,13 +76,13 @@ class PRO_SLIDER extends Component{
             <React.Fragment>
                 <div id="l_slider">
                     <ul>
-                        <li>1</li>
+                        {/* <li>1</li>
                         <li>2</li>
-                        <li>3</li>
+                        <li>3</li> */}
                         {this.state.img.map(img => <li style={{backgroundImage: `url(${require('../../images/p_img/' + img.IMG_NAME)})`}}></li>)}
                     </ul>  
-                    <button  className="l_btn_next" onClick={this.l_sliderNext}>next</button>
-                    <button  className="l_btn_prev" onClick={this.l_sliderPrev}>prev</button>
+                    <div  className="l_btn_next l_btn" onClick={this.l_sliderNext}>next</div>
+                    <div  className="l_btn_prev l_btn" onClick={this.l_sliderPrev}>prev</div>
                 </div>
             </React.Fragment>
         )

@@ -24,9 +24,9 @@ class Products extends Component{
         return(
             <React.Fragment>
                 <div id="products">
-                    <ProSlider id={this.state.data.PRO_SEQ}/>
                     <div id="pro_body">
                         <div className="pro_body_l">
+                            <ProSlider id={this.state.data.PRO_SEQ}/>
                             <ProName data={this.state.data}/>
                             <ProInfo info={this.state.data.PRO_INFO}/>
                             {/* <PRO_COMMENT/> */}
