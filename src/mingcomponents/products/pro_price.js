@@ -22,8 +22,7 @@ class PRO_PRICE extends Component{
                         <p id="price_p">${this.props.price} 起</p>
                     </div>
                     <div className="w60">
-                        <button>我要預約</button>
-                        {/* <a href="#pro_stock" /> */}
+                        <div >我要預約</div>
                     </div>
                 </div>
             </React.Fragment>

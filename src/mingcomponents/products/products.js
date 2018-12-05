@@ -15,7 +15,7 @@ import ProAd from './pro_ad.js';
 class Products extends Component{
     constructor(props){
         super(props)
-        this.ID = props.match.params.ID;
+        // this.ID = props.match.params.ID;
         this.state = {
             data: this.props.location.state.id
         }

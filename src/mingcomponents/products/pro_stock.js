@@ -104,6 +104,18 @@ class PRO_STOCK extends Component{
     componentWillMount(){
         // stopPropagation()
     }
+    checkRedirect = () => {
+        if(this.state.number !== 0){
+            return <NavLink className="buy-btn" to={{
+                pathname: `/products/reservation/${this.state.data.PRO_SEQ}`,
+                state: {id : '1'}
+                }}>立即預約</NavLink>
+        }
+        return <div className="buy-btn" onClick={this.warning}>立即預約</div>
+    }
+    warning = () => {
+        alert("請先選擇日期與人數！")
+    }
     render(){
         let price = this.state.number*this.state.data.PRICE
         let totalPriceShow = this.state.totalPriceShow ? "" : "none"
@@ -157,10 +169,7 @@ class PRO_STOCK extends Component{
                 </div>
                 <div id="pro_stock_buy" className="dd-flex">
                     <div className="buy-btn">我要揪團</div>
-                    <NavLink className="buy-btn" to={{
-                        pathname: `/products/reservation/${this.state.data.PRO_SEQ}`,
-                        state: {id : '1'}
-                        }}>立即預約</NavLink>
+                    {this.checkRedirect()}
                 </div>
             </React.Fragment>
         )
