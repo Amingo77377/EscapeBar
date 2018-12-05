@@ -31,7 +31,7 @@ class ProCards extends Component{
           <div className="card_rows">
             {this.props.products.map(card =>
                 <NavLink className="pro_card" key={card.PRO_SEQ} to={{
-                  pathname: `/products/${card.PRO_SEQ}`,
+                  pathname: `/proList/products/${card.PRO_SEQ}`,
                   state: {id: card}
                 }}>
                   <div className="workshop_logo" style={{ backgroundImage: `url(${require('../../../images/c_img/'+ card.c_logo)})`}}>

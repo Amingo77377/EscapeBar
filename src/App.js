@@ -13,9 +13,9 @@ class App extends Component {
         <div className="App">
         {/* <Switch> */}
           {/* <ProList/> */}
-          <Route exact path="/" component={ProList} />
-          <Route exact path="/products/:ID" component={Products} /> 
-          <Route path="/products/reservation/:ID" component={ProBuy} />
+          <Route exact path="/proList" component={ProList} />
+          <Route exact path="/proList/products/:ID" component={Products} /> 
+          <Route path="/proList/products/reservation/:ID" component={ProBuy} />
         {/* </Switch> */}
         </div>
       </BrowserRouter>

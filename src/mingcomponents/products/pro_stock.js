@@ -107,7 +107,7 @@ class PRO_STOCK extends Component{
     checkRedirect = () => {
         if(this.state.number !== 0){
             return <NavLink className="buy-btn" to={{
-                pathname: `/products/reservation/${this.state.data.PRO_SEQ}`,
+                pathname: `/proList/products/reservation/${this.state.data.PRO_SEQ}`,
                 state: {id : '1'}
                 }}>立即預約</NavLink>
         }
