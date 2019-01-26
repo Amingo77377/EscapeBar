@@ -1,0 +1,47 @@
+.headshot {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #aaa;
+}
+
+.mem_sub_nav {
+    text-align: center;
+    background-color: #EBEBEB;
+    height: 40px;
+    line-height: 40px;
+}
+
+.sub_nav_items {
+    color: #29465D;
+    font-weight: bold;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.mem_title_line {
+    border-top: 1.5px solid #F7882F;
+}
+
+.nickname_style {
+    color: darkblue;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.mem-list-top {
+    margin-top: 72px;
+}
+
+@media screen and (max-width: 376px){
+    .mem-font-size {
+        font-size: 0.75em;
+    }
+    .sub_nav_items {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}

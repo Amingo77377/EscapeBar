@@ -1,10 +1,27 @@
+$break-959: 959px;
+
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
 #products{
+    margin-top: 64px;
     background-color: #F9F9F9;
+    font-family: '微軟正黑體';
+    @include breakpoint(mobile) {
+        margin-top: 40px;
+    }
+
     #pro_body{
         width: 80%;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
+        @include breakpoint(mobile) {
+            width: 100%;
+        }
+    
         
         .pro_body_l{
             width: 60%;
@@ -12,10 +29,18 @@
             // background-color: #fff;
             // box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
             margin-top: 20px;
+            @include breakpoint(mobile) {
+                width: 100%;
+                margin-right: 0;
+                margin-top: 0;
+            }
         }
         .pro_body_r{
             width: 35%;
             margin-top: 20px;
+            @include breakpoint(mobile) {
+                display: none;
+            }
         }
     }
 }

@@ -1,0 +1,78 @@
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
+#pro_price2{
+    width: 100%;
+    // border: 1px solid #000;
+    background-color: #fff;
+    // border-radius: 5px;
+    height: 80px;
+    display: none;
+    @include breakpoint(mobile) {
+        // width: 90%;
+        display: flex;
+        // margin: 0 5%;
+    }
+    #price2{
+        height: 80px;
+        width: 40%;
+        @include breakpoint(mobile) {
+           width: 50%;
+           display: flex;
+           justify-content: space-evenly;
+        }
+        p{
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+            @include breakpoint(mobile) {
+                line-height: 80px;
+            }
+        }
+        #price_p2{
+            color: #D0104C;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            @include breakpoint(mobile) {
+                font-size: 1.9rem;
+            }
+        }
+        .up{
+            color: #D0104C;
+            font-size: 1.2rem;
+        }
+    }
+    .w60{
+        height: 60px;
+        border-left: 1px solid #000;
+        width: 60%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include breakpoint(mobile) {
+            width: 50%;
+            margin: auto 0;
+        }
+        div{
+            background-color: #F7882F;
+            width: 60%;
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+            line-height: 40px;
+            @include breakpoint(mobile) {
+                width: 70%;
+                
+            }
+        }
+    }
+}

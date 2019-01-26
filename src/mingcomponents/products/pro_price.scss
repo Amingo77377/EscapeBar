@@ -20,6 +20,10 @@
             font-weight: 700;
             text-align: center;
         }
+        .up{
+            color: #D0104C;
+            font-size: 1.2rem;
+        }
     }
     .w60{
         height: 60px;
@@ -38,7 +42,9 @@
             cursor: pointer;
             font-size: 1.2rem;
             color: #fff;
-            font-weight: 700
+            font-weight: 700;
+            text-align: center;
+            line-height: 39px;
         }
     }
 }

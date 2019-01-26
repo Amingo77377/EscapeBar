@@ -1,0 +1,22 @@
+.studio_title_line {
+    border-top: 1.5px solid #F7882F;
+}
+
+.studio_cname {
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+.studio_img {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 376px){
+    .studio_img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+}

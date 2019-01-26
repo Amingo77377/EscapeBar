@@ -1,0 +1,46 @@
+放在Map的state中
+    // gamesInfo: [
+    //   { gameTitle: "淘寶買假貨",
+    //     gameRating: "1.5",
+    //     gameRatingSamples: "233",
+    //     gameFeature1: "機關重重",
+    //     gameFeature2: "劇情厲害",
+    //     gameFeature3: "勾心鬥角",
+    //     gamePriceMin: "499"
+    //   },
+    //   { gameTitle: "天貓買假貨",
+    //     gameRating: "1.7",
+    //     gameRatingSamples: "426",
+    //     gameFeature1: "機關重重",
+    //     gameFeature2: "劇情厲害",
+    //     gameFeature3: "勾心鬥角",
+    //     gamePriceMin: "499"
+    //   },
+    //   { gameTitle: "蝦皮買假貨",
+    //     gameRating: "2.5",
+    //     gameRatingSamples: "689",
+    //     gameFeature1: "機關重重",
+    //     gameFeature2: "劇情厲害",
+    //     gameFeature3: "勾心鬥角",
+    //     gamePriceMin: "499"
+    //   },
+    // ]
+
+
+放在GameInfo中
+                {/* {
+                    this.props.gamesInfo.map(game =>
+                        <div className="gameRow">
+                            <div className="gameLeft">
+                                <img className="gameImg" src={"../img/origin/" + game.gameImg} alt={game.gameImg}></img>
+                            </div>
+                            <div className="gameRight">
+                                <h4 className="gameTitle">{game.gameTitle}</h4>
+                                <div><span className="gameRating">{game.gameRating}  </span><span className="gameRatingSamples">  {game.gameRatingSamples} 則評價</span></div>
+                                <div><span className="gameFeature">{game.gameFeature1}</span><span className="gameFeature">{game.gameFeature2}</span><span className="gameFeature">{game.gameFeature3}</span></div>
+                                <div><span>{game.gamePriceMin} 元起 </span><button className="btn btn-warning">查看更多</button></div>
+                            </div>
+                            <hr/>
+                        </div>
+                    )
+                } */}

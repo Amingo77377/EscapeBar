@@ -9,20 +9,19 @@ class PRO_PRICE extends Component{
         }
 
     }
-    componentDidUpdate(){
-        
+    scrollToStock = () => {
+        this.props.scrollToStock()
     }
-
     render(){
         return(
             <React.Fragment>
                 <div id="pro_price">
                     <div id="price">
                         <p>每人</p>
-                        <p id="price_p">${this.props.price} 起</p>
+                        <p id="price_p">${this.props.price}<span className="up"> 起</span></p>
                     </div>
                     <div className="w60">
-                        <div >我要預約</div>
+                        <div onClick={this.scrollToStock}>我要預約</div>
                     </div>
                 </div>
             </React.Fragment>

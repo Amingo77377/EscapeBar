@@ -1,3 +1,8 @@
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
 #l_slider{
     margin: 0;
     padding: 0;
@@ -5,6 +10,9 @@
     height: 300px;
     position: relative;
     overflow: hidden;
+    @include breakpoint(mobile) {
+        height: 250px;
+    }
     .l_btn{
         width: 40%;
         position: absolute;
@@ -14,6 +22,18 @@
         transition: .3s;
         -webkit-user-select: none;
         -moz-user-select: none;
+        @include breakpoint(mobile) {
+            line-height: 250px;
+        }
+        span{
+            padding: 5px;
+            background-color: rgba($color: #fff, $alpha: .5);
+            border-radius: 5px;
+            @include breakpoint(mobile) {
+                display: none;
+            }
+        }
+        
     }
     .l_btn_next{
         right: 0;
@@ -35,14 +55,19 @@
         list-style: none;
         // transition: .5s;
         left: -100%;
+
         li{
             width: 48vw;
             height: 300px;
-            // background-color: #ccc;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             transition: .5s;
+            @include breakpoint(mobile) {
+                height: 250px;
+                width: 100vw;
+                background-color: rgba($color: #000, $alpha: 1);
+            }
         }
     }
 }

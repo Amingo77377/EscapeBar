@@ -21,7 +21,7 @@ class SearchBar extends Component{
       textResults: [],
       keywordOpen: "",
       sort: "",
-      type:"search"
+      type:"homeSearch"
     }
     
   }
@@ -53,7 +53,7 @@ class SearchBar extends Component{
         people: "", 
         price: "",
         text: "",
-        type: "filter"
+        type: "search"
       })
     }
   }
@@ -213,7 +213,7 @@ class SearchBar extends Component{
         people: "", 
         price: "",
         text: "",
-        type: "filter"
+        type: "search"
       })
     }
   }
@@ -221,16 +221,17 @@ class SearchBar extends Component{
     return(
       <React.Fragment>
         <div id="pro_search_bar">
-          <form className="input" onSubmit={this.onSearch}>
-            <div id="search_input">
-                <i className="fas fa-search"></i><input type="text" onChange={this.searchBar} value={this.state.text} tabIndex={0} onBlur={this.close}/>
-            </div>
-            <div className="keyword">
-                  {this.state.textResults.map((text, i) =>
-                    <div key={i} className={"text_results" + " " + this.state.keywordOpen} onClick={this.keywordDown} data-text={text.PRO_NAME}>{text.PRO_NAME}</div>
-                    )}
-            </div>
-          </form>
+          <div className="w80">
+            <form className="input" onSubmit={this.onSearch}>
+              <div id="search_input">
+                <i className="fas fa-search"></i><input type="text" onChange={this.searchBar} value={this.state.text} tabIndex={0} onBlur={this.close} />
+              </div>
+              <div className="keyword">
+                {this.state.textResults.map((text, i) =>
+                  <div key={i} className={"text_results" + " " + this.state.keywordOpen} onClick={this.keywordDown} data-text={text.PRO_NAME}>{text.PRO_NAME}</div>
+                )}
+              </div>
+            </form>
             <div id="sel_city" className={"sel" + " " + this.state.openCity} tabIndex={0} onClick={this.openCity} onBlur={this.close}>
               <div className="first" data-value=">=1" >{this.state.nowCity}</div>
               <div className={"option" + " " + this.state.openCity}>
@@ -251,7 +252,7 @@ class SearchBar extends Component{
 
             <div id="sel_cate" className={"sel" + " " + this.state.openCate} onClick={this.openCate} tabIndex={0} onBlur={this.close}>
               <div className="first" data-value=">=1">{this.state.nowCate}</div>
-              <div className={"option" +" " + this.state.openCate}>
+              <div className={"option" + " " + this.state.openCate}>
                 <div className="" data-value="" data-text="不限" onClick={this.selCate}>不限</div>
                 <div className="" data-value="&& (f.`feature1` =1 || f.`feature2` =1 || f.`feature3` =1) " data-text="新手入門" onClick={this.selCate}>新手入門</div>
                 <div className="" data-value="&& (f.`feature1` =2 || f.`feature2` =2 || f.`feature3` =2) " data-text="中度玩家" onClick={this.selCate}>中度玩家</div>
@@ -271,7 +272,7 @@ class SearchBar extends Component{
 
             <div id="sel_people" className={"sel" + " " + this.state.openPeople} onClick={this.openPeople} tabIndex={0} onBlur={this.close}>
               <div className="first" data-value="">{this.state.nowPeople}</div>
-              <div className={"option" +" " + this.state.openPeople}>
+              <div className={"option" + " " + this.state.openPeople}>
                 <div className="" data-value="" data-text="不限" onClick={this.selPeople}>不限</div>
                 <div className="" data-value="&& p.`PEOPLE_MIN` <= 1 && 1 <= p.`PEOPLE_MAX`" data-text="1人" onClick={this.selPeople}>1人</div>
                 <div className="" data-value="&& p.`PEOPLE_MIN` <= 2 && 2 <= p.`PEOPLE_MAX`" data-text="2人" onClick={this.selPeople}>2人</div>
@@ -288,7 +289,7 @@ class SearchBar extends Component{
 
             <div id="sel_price" className={"sel" + " " + this.state.openPrice} onClick={this.openPrice} tabIndex={0} onBlur={this.close}>
               <div className="first" data-value="5000">{this.state.nowPrice}</div>
-              <div className={"option" +" " + this.state.openPrice}>
+              <div className={"option" + " " + this.state.openPrice}>
                 <div className="" data-value="" data-text="全部" onClick={this.selPrice}>全部</div>
                 <div className="" data-value="&& p.`PRICE` <= 300" data-text="300以下" onClick={this.selPrice}>300以下</div>
                 <div className="" data-value="&& p.`PRICE` <= 450" data-text="450以下" onClick={this.selPrice}>450以下</div>
@@ -296,7 +297,8 @@ class SearchBar extends Component{
                 <div className="" data-value="&& p.`PRICE` >= 600" data-text="600以上" onClick={this.selPrice}>600以上</div>
               </div>
             </div>
-            <button id="search-btn" onClick={this.onSearch}>搜尋</button>
+            <div id="search-btn" onClick={this.onSearch}>搜尋</div>
+          </div>
         </div>
       </React.Fragment>
     )

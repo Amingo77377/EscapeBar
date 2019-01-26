@@ -1,0 +1,36 @@
+.las-items {
+    width: 135px;
+    margin-left: 40px;
+}
+.las-circle {
+    border-radius: 0%;
+    width: 100%;
+    height: 135px;
+    transition: .5s;
+}
+.las-center {
+    text-align: center;
+}
+
+a:hover .las-circle {
+    border-radius: 50%;
+    /* box-shadow: 1px 0px 0px #000; */
+    transition: .5s;
+}
+
+@media screen and (max-width: 376px){
+    .las-items {
+        width: 100px;
+        margin-left: 45px;
+    }
+    .las-circle {
+        border-radius: 0%;
+        width: 100%;
+        height: 100px;
+        transition: .5s;
+    }
+    .las-center {
+        text-align: center;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,24 @@
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
+#pro_map2{
+    width: 100%;
+    border: 1px solid #B0ABAB;
+    height: 20vw;
+    margin-top: 72px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: none;
+    @include breakpoint(mobile) {
+        display: block;
+        border-radius: 0;
+        margin-top: 0px;
+        height: 305px;
+    }
+    iframe{
+        width: 100%;
+        height: 20vw;
+    }
+}

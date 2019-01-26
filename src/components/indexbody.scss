@@ -1,0 +1,595 @@
+$mainColor: #F7882F;
+$spaceForHeaderNav : 64px;
+$spaceForHeaderNavMobile : 40px;
+$bodyColor: #f4f4f4;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
+
+// desktop: header = 64px, nav = 48px
+// mobile: header = 40px
+
+
+body{
+    font-family: 'Noto Sans TC', "Microsoft JhengHei", sans-serif;
+    background-color: #F9F9F9;
+}
+
+.dp-flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.dp-flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-jc-sb{
+    justify-content: space-between;
+}
+
+.flex-jc-ar{
+    justify-content: space-around;
+}
+
+// desktop version shows when width >= 960px
+@media only screen and (min-width: 960px){
+    .indexBody{
+        position: relative;
+        top: $spaceForHeaderNav;
+        width: 100%;
+        background-color: $bodyColor;
+        .indexContainer{
+            width: 86%;
+            margin: auto;
+            padding-top: 4px;
+            padding-bottom: 36px;
+        }
+        .indexHr{
+            background-color:  #F7882F;
+            height: 2px;
+            width: 100%;
+        }
+        .indexBtn{
+            border-radius: 24px;
+            color: white;
+            font-weight: 700;
+        }
+        .seeMore{
+            text-align: center;
+        }
+    }
+
+    .subTitle{
+        padding-top: 24px; 
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .subRemark{
+        text-align: center;
+
+    }
+
+    .heroSection{
+        height: calc(100vh - 48px - 64px); // calc(100vh - $spaceForHeaderNav) 減不動
+        background-image: url("/img/heroimg.png");
+        background-repeat: no-repeat; 
+        background-size: cover;
+        background-position: right bottom;
+        .searchBox{
+            position: relative;
+            left: 6%;
+            top: 36px;
+            // width: 40%;
+            width: 480px;
+            border-radius: 16px;
+            background-color: white;
+            opacity: 1;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.7);
+            .dp-flex-col{
+                position: relative;
+                .keyword{
+                    // margin-le/ft: 20px;
+                    position: absolute;
+                    top: 70px;
+                    z-index: 15;
+                    width: 100%;
+                    max-height: 350px;
+                    background-color: #fff;
+                    box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
+                    opacity: 1;
+                    overflow: auto;
+                    .text_results{
+                        width: 100%;
+                        height: 25px;
+                        cursor: pointer;
+                        overflow: hidden;
+                        text-indent: 10px;
+                        color: #545871;
+                        .g_name{
+                            color: #3a6a9e;
+                            font-weight: 550;
+                        }
+                    }
+                    .text_results:hover{
+                        background-color: rgba(255, 141, 10, 0.623);
+                    }
+                    .text_results.close{
+                        height: 0;
+                        transition: none;
+                    }
+                }
+            }
+            .slogan{
+                font-weight: 900;
+            }
+            .subSlogan{
+                font-size: 1.2em;
+            }
+            .keywordSgst{
+                text-align: center;
+                // border: 1px solid #545871;
+                // border-radius: 24px;
+                // background-color: white;
+                // &:hover{
+                    // background-color: #545871;
+                    // color: white;
+                // }
+            }
+            .searchBtnDiv{
+                justify-content: center;
+                .searchBtn{
+                    border-radius: 4px;
+                    border: 2px transparent;
+                    align-self: center;
+                    text-align: center;
+                    text-decoration: none;
+                    line-height: 70px;
+                    color: white;
+                    background-color: #545871;
+                    width: 70%;
+                    height: 70%;
+                    font-size: 1.2em;
+                    font-weight: 700;
+                    &:hover{
+                        background: $mainColor;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .monthTopic{
+        .monthTopicInside{
+            background-color: #FCFCFC;
+            border-radius: 16px;
+            .monthTopicImg{
+                width: 90%;
+                /* height: 400px; */
+                object-fit: contain;
+                border-radius: 16px;
+                &:hover{
+                    opacity: 0.75;
+                }
+            }
+            h4{
+                text-align: left;
+            }
+        }
+    }
+
+    .escapeRoomMap{
+        height: 600px;
+        background-image: url("/img/mapsample.png");
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-size: cover;
+        .seeMap{
+            position: relative;
+            bottom: -260px;
+            text-align: center;
+        }
+    }
+
+    .grouping{
+        .groupingCardInside{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            .groupingCard{
+                width: 320px;
+                // height: 480px;
+                // background-color: black;
+                // border: 2px solid black;
+                box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+                transition: 0.5s;
+                &:hover{
+                    transform: translateY(-8px);
+                    box-shadow: 8px 8px 16px rgba(0,0,0,0.5);
+                }
+                .groupGameImgBox{
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+                    .groupGameImg{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .groupGameCompany{
+                    padding: 4px 16px;
+                    .groupGameTitle{
+                        font-size: 1.4em;
+                    }
+                    .groupCompany{
+                        font-size: 1em;
+                    }
+                }
+                .groupInfo{
+                    
+                    .groupHolder{
+                        margin: auto;
+                        width: 100px;
+                        height: 100px;
+                        border: 2px solid $mainColor;
+                        border-radius: 100%;
+                        .groupHolderImg{
+                            position: relative;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 90%;
+                        }
+
+                    }
+                    .groupHolderId{
+                        text-align: center;
+                        margin-bottom: 8px;
+                    }
+                    .groupHoldingInfo{
+                        span{
+                            font-size: 1.2em;
+                        }
+                        .deadLine{
+                            font-weight: 800;
+                            color: red;
+                        }
+
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    .services{
+        background-color: #F7C331;
+        // padding-bottom: 12px;
+        .servicesInside{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 70%;
+            margin: auto;
+            .serviceLink{
+                color: black;
+                &:hover{
+                    color: white;
+                }
+                .serviceFeature{
+                    text-align: center;
+                    font-size: 1.2em;
+                    .serviceImgDiv{
+                        height: 200px;
+                        width: 200px;
+                        background-color: white;
+                        border-radius: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: 0 8px 4px rgba(0,0,0,0.5);
+                        transition: 0.5s;
+                        transform-origin: center center;
+                        &:hover {
+                            transform: rotateY(180deg);
+                        }
+                        .serviceImg{
+                            height: 70%;
+                            object-fit: contain;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .topClass{
+        z-index: 99;
+        position: fixed;
+        right: 3%;
+        bottom: 3%;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background-color: #F7882F;
+        text-decoration: none !important;
+        transition: .5s;
+        &:hover{
+            background-color: #DB4F2C;
+        }
+    }
+}
+
+
+// mobile version shows when width < 960px
+@media only screen and (max-width: 959px){
+    .indexBody{
+        position: relative;
+        top: $spaceForHeaderNavMobile;
+        width: 100%;
+        background-color: $bodyColor;
+        .indexContainer{
+            width: 86%;
+            margin: auto;
+            padding-top: 4px;
+            padding-bottom: 36px;
+        }
+        .indexHr{
+            background-color:  #F7882F;
+            height: 2px;
+            width: 100%;
+        }
+        .indexBtn{
+            border-radius: 24px;
+            color: white;
+            font-weight: 700;
+        }
+        .seeMore{
+            text-align: center;
+        }
+    }
+
+    .subTitle{
+        padding-top: 16px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .subRemark{
+        text-align: center;
+        font-size: 1.1em;
+    }
+
+    .heroSection{
+        height: calc(100vh - 80px);
+        // background-image: url("/img/heroimg.png");
+        // background-repeat: no-repeat; 
+        // background-size: cover;
+        // background-position: right bottom;
+        // background-color: #777777;
+        background-color: #F7C331;
+        .searchBox{
+            position: relative;
+            left: 4%;
+            top: 24px;
+            // width: 40%;
+            width: 92%;
+            border-radius: 16px;
+            background-color: white;
+            box-shadow: 2px 4px 16px rgba(0,0,0,0.5);
+            .dp-flex-col{
+                position: relative;
+                .keyword{
+                    // margin-le/ft: 20px;
+                    position: absolute;
+                    top: 70px;
+                    z-index: 15;
+                    width: 100%;
+                    max-height: 350px;
+                    background-color: #fff;
+                    box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
+                    opacity: 1;
+                    overflow: auto;
+                    .text_results{
+                        width: 100%;
+                        height: 25px;
+                        cursor: pointer;
+                        overflow: hidden;
+                        text-indent: 10px;
+                        color: #545871;
+                        .g_name{
+                            color: #3a6a9e;
+                            font-weight: 550;
+                        }
+                    }
+                    .text_results:hover{
+                        background-color: rgba(255, 141, 10, 0.623);
+                    }
+                    .text_results.close{
+                        height: 0;
+                        transition: none;
+                    }
+                }
+            }   
+            opacity: 1;
+            .slogan{
+                font-weight: 900;
+                font-size: 1.4em;
+            }
+            .subSlogan{
+                font-size: 1.1em;
+            }
+            .keywordSgst{
+                text-align: center;
+                // border: 1px solid #545871;
+                // border-radius: 24px;
+                // background-color: white;
+                // &:hover{
+                    // background-color: #545871;
+                    // color: white;
+                // }
+            }
+            .searchBtnDiv{
+                justify-content: center;
+                .searchBtn{
+                    border-radius: 4px;
+                    border: 2px transparent;
+                    align-self: center;
+                    text-align: center;
+                    text-decoration: none;
+                    line-height: 3.6em;
+                    color: white;
+                    background-color: $mainColor;
+                    width: 100%;
+                    height: 60%;
+                    font-size: 1.2em;
+                    font-weight: 700;
+                    &:hover{
+                        background: $mainColor;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .monthTopic{
+
+        .monthTopicInside{
+            background-color: #FCFCFC;
+            border-radius: 16px;
+            .monthTopicImg{
+                display: block;
+                margin: auto;
+                width: 100%;
+                /* height: 400px; */
+                object-fit: contain;
+                border-radius: 16px;
+                &:hover{
+                    opacity: 0.75;
+                }
+            }
+            h4{
+                text-align: left;
+            }
+        }
+    }
+
+    .escapeRoomMap{
+        height: 600px;
+        background-image: url("/img/mapsample.png");
+        background-position: center;
+        background-repeat: no-repeat; 
+        background-size: cover;
+        .seeMap{
+            position: relative;
+            bottom: -260px;
+            text-align: center;
+        }
+    }
+
+    .grouping{
+        .groupingCardInside{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .groupingCard{
+                width: 94%;
+                margin-bottom: 12px;
+                // height: 480px;
+                // background-color: black;
+                // border: 2px solid black;
+                box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+                .groupGameImgBox{
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+                    .groupGameImg{
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+                .groupGameCompany{
+                    padding: 4px 16px;
+                    .groupGameTitle{
+                        font-size: 1.4em;
+                    }
+                    .groupCompany{
+                        font-size: 1em;
+                    }
+                }
+                .groupInfo{
+                    
+                    .groupHolder{
+                        margin: auto;
+                        width: 100px;
+                        height: 100px;
+                        border: 2px solid $mainColor;
+                        border-radius: 100%;
+                        .groupHolderImg{
+                            position: relative;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 90%;
+                        }
+    
+                    }
+                    .groupHolderId{
+                        text-align: center;
+                        margin-bottom: 8px;
+                    }
+                    .groupHoldingInfo{
+                        span{
+                            font-size: 1.2em;
+                        }
+                        .deadLine{
+                            font-weight: 800;
+                            color: red;
+                        }
+    
+                    }
+                    
+                }
+            }
+        }
+    }
+
+    .services{
+        // display: none;
+        background-color: #F7C331;
+        // padding-bottom: 12px;
+        .servicesInside{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 70%;
+            margin: auto;
+            .serviceLink{
+                color: black;
+                font-size: 1.2em;
+                .serviceFeature{
+                    text-align: center;
+                    
+                    .serviceImgDiv{
+                        height: 120px;
+                        width: 120px;
+                        background-color: white;
+                        border-radius: 100%;
+                        margin: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: 0 6px 8px rgba(0,0,0,0.5);
+                        .serviceImg{
+                            height: 70%;
+                            object-fit: contain;
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,123 @@
+.mapContainer{
+    position: relative;
+    top: 64px;
+    height: calc(90vh - 64px);
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+.mapBody{
+    width: 77%;
+}
+
+.mapBody img[src^="../img/company/40/"]{
+    border-radius: 100%;
+    border:1px solid #000 !important;
+}
+
+
+.citySelect{
+    position: absolute;
+    /* position: relative; */
+    top: 144px;
+    left: 15%;
+    width: 200px;
+    background-color: white;
+}
+
+.queryBar{
+    position: absolute;
+    top: 144px;
+    left: 32%;
+    /* height: 48px; */
+    width: 360px;
+    background-color: white;
+}
+
+.queryBtn{
+    position: absolute;
+    top: 0;
+    left: 380px;
+    width: 96px;
+}
+
+
+.mapSideInfo{
+    width: 23%;
+    background-color: #eeeeee;
+    padding-left: 2px;
+    /* overflow: hidden; */
+    overflow: auto;
+}
+
+
+.storeInfo{
+    width: 100%;
+    background-color: lightblue;
+    padding: 8px;
+
+}
+
+.storeTop{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 4px;
+}
+
+img.storeLogo{
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+}
+
+h3.storeName{
+    font-size: 1.3em;
+    font-weight: 800;
+}
+
+hr{
+    margin: 4px;
+}
+
+.gameInfo{
+    /* height: 800px; */
+    width: 100%;
+    background-color: #eeeeee;
+    padding: 12px;
+    overflow: auto;
+}
+
+.gameRow{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+    background-color: white;
+    padding-bottom: 12px;
+}
+
+img.gameImg{
+    width: 100px;
+    height: 100px;
+    margin-right: 16px;
+
+}
+
+h4.gameTitle{
+    font-size: 1em;
+    font-weight: 800;
+}
+
+.gameRating{
+    color: yellow;
+}
+
+.gameRatingSamples{
+    color: blue;
+}
+
+.gameFeature{
+    color: red;
+}

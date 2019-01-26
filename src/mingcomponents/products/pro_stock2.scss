@@ -1,0 +1,276 @@
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
+#pro_stock2{
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 30px;
+    border: 1px solid #B0ABAB;
+    overflow: hidden;
+    display: none;
+    @include breakpoint(mobile) {
+        border-radius: 0;
+        display: block;
+        // border: none;
+    }
+    #pro_stock_place2{
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 10px;
+        position: relative;
+        @include breakpoint(mobile) {
+            // padding-top: 0;
+        }
+        h4{
+            padding: 10px 0;
+            margin: auto;
+            width: 80%;
+            border-bottom: 1px solid #F7882F;
+        }
+        .one_site{
+            margin: 10px 0;
+            visibility: hidden;
+        }
+        .one_site.none{
+            visibility: visible;
+        }
+        .sites{
+            box-sizing: content-box;
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70px;
+            min-height: 25px;
+            min-width: 100px;
+            border: 1px solid #B0ABAB;
+            border-radius: 8px;
+            background-color: #fff;
+            background-image: url(../../images/down_arrow.svg);
+            background-size: 12px;
+            background-position: right 5px top 10px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: .2s;
+            outline: none;
+            -webkit-user-select: none;  
+            -moz-user-select: none; 
+            overflow: hidden; 
+            .first{
+                height: 25px;
+                padding: 0 20px 0 10px;
+            }
+            .option{
+                cursor: pointer;
+                height: 0px;
+                padding: 0 20px 0 10px;
+                transition: .2s;
+                opacity: 0;
+            }
+        }
+        .sites.open{
+            .option{
+                height: 25px;
+                opacity: 1;
+            }
+            .option:hover{
+                background-color: rgba(247, 194, 49, 0.671);
+            }
+        }
+        .sites.none{
+            display: none;
+        }
+    }
+    #pro_stock_date2{
+        text-align: center;
+        h4{
+            width: 80%;
+            margin: auto;
+            border-bottom: 1px solid #F7882F;
+            padding: 10px 0;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li{
+                border-top: 1px solid #B0ABAB;
+                background-color: #EFEFEF;
+                height: 40px;
+                width: 100%;
+                font-size: 1.2rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                .unchecked{
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid #3DB39E;
+                    border-radius: 50%;
+                }
+                .checked{
+                    width: 22px;
+                    height: 22px;
+                    background-image: url(../../images/checked.png);
+                    background-size: 22px;
+                    border-radius: 50%;
+                }
+                .number{
+                    display: flex;
+                    align-items: center;
+                    .minus-btn{
+                        box-sizing: content-box;
+                        margin: 0 10px;
+                        padding: 10px;
+                        cursor: pointer;
+                        width: 20px;
+                        height: 20px;
+                        // padding: 10px;
+                        display: flex;
+                        align-items: center;
+                        background: url(../../images/minus.png) center center no-repeat;
+                        background-size: 24px;
+                        // .mb1{
+                        //     width: 18px;
+                        //     height: 3px;
+                        //     border-radius: 1.5px;
+                        //     background-color: #aaa;
+                        // }
+                    }
+                    .plus-btn{
+                        box-sizing: content-box;
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 10px;
+                        padding: 10px;
+                        position: relative;
+                        // padding: 5px;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        background: url(../../images/plus.png) center center no-repeat;
+                        background-size: 24px;
+                        // div{
+                        //     position: absolute;
+                        //     // left: 10px;
+                        //     width: 18px;
+                        //     height: 3px;
+                        //     border-radius: 1.5px;
+                        //     background-color: #aaa;
+                        // }
+                        // .pb1{
+                        //     transform: rotate(90deg);
+                        // }
+                    }
+                }
+            }
+            li.checked{
+                background-color: #fff;
+            }
+        }
+    }
+    
+  }
+  #pro_stock_price2{
+    // margin-top: 10px;
+    // display: none;
+    width: 100%;
+    background-color: #EFEFEF;
+    border-radius: 5px;
+    justify-content: space-around;
+    #title2{
+        p{
+            margin: 0;
+            color: #888;
+        }
+        h4{
+            font-size: 1rem;
+            color: #3a6a9e;
+            margin-top: 10px;
+        }
+        #site_name2{
+            // font-size: 1rem;
+        }
+    }
+    #total_price2{
+        margin: 15px ;
+        border: 1px solid #B0ABAB;
+        border-radius: 50%;
+        background-color: #fff;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        p{
+            margin: 10px 0 5px 0;
+        }
+        h4{
+            margin: 0;
+            padding: 0;
+            font-size: 1.7rem;
+            color: #F00A6B
+        }
+    }
+  }
+  #pro_stock_price2.none{
+    display: none;
+  }
+  #pro_stock_buy2{
+    margin: 10px 0 20px 0;
+    justify-content: space-evenly;
+    display: none;
+    @include breakpoint(mobile) {
+        display: flex;
+        // margin-top: 10px 0 20px 0;
+    }
+    .buy-btn{
+        background-color: #F7882F;
+        margin: 0 10px;
+        width: 40%;
+        height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+        line-height: 40px;
+    }
+  }
+  .dd-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .alert{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    .alert_frame{
+        border-radius: 10px;
+        width: 300px;
+        height: 170px;
+        position: relative;
+        background-color: rgba($color: #ffffff, $alpha: .85);
+        line-height: 170px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 550;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
+  }
+  .alert.none{
+    display: none;
+  }

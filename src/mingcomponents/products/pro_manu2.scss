@@ -1,0 +1,48 @@
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
+#pro_manu2{
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #B0ABAB;
+    padding: 10px;
+    margin-top: 30px;
+    text-align: center;
+    display: none;
+    @include breakpoint(mobile) {
+        border: none;
+        border-radius: 0;
+        display: block;
+    }
+    h3{
+        margin: 0;
+    }
+    h4{
+        color: #C18A26;
+        font-weight: 700;
+        margin: 30px 0 10px 0;
+        font-size: 1.3rem;
+    }
+    #manu_frame2{
+        border-top: 3px solid #C18A26;
+        padding: 20px;
+        #manu_logo2{
+            width: 150px;
+            height: 150px;
+            // background-image: url(../../images/壞主意工作室.jpg);
+            background-size: contain;
+            border-radius: 50%;
+            margin: auto;
+            cursor: pointer;
+        }
+        #manu_info2{
+            text-indent: 2rem;
+            margin-top: 20px;
+            text-align: left;
+            // white-space: pre-wrap;
+        }
+    }
+}

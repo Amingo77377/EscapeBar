@@ -2,19 +2,47 @@
   .receipt{
     margin: auto;
     text-align: center;
+    margin-bottom: 40px;
     // font-size:rem;
     background-color: #AAB0BB;
     border-radius: 1rem;
     width: 90%;
   }
+  h3{
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
   .sel_pay_type{
+    margin-bottom: 10px;
     .option{
-      width: 100%;
+      width: 90%;
       height: 40px;
-      background-color: #fff;
+      background: #fff no-repeat left 10px center ;
       border: 2px solid #B0ABAB;
-      margin: 5px 0;
+      margin: 5px auto;
       border-radius: 5px;
+      cursor: pointer;
+      background-image: url(../../../images/unchecked.png);
+      background-size: 20px;
+      text-indent: 40px;
+      line-height: 34px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
     }
+    .option.checked{
+      background-image: url(../../../images/checked.png);
+      border: 2px solid #3DB39E;
+    }
+  }
+  .warning{
+    width: 90%;
+    margin: 10px auto;
+    background-color: #FF4959;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+  }
+  .warning.none{
+    display: none;
   }
 }

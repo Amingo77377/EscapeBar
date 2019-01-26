@@ -41,11 +41,11 @@ const PEO_LIST = [
   {id:"10", name: "10人"}
 ]
 const PRICE_LIST = [
-  {id:"&& p.`PRICE` >= 0", name: "不限"},
-  {id:"&& p.`PRICE` <= 300", name:"300以下"},
-  {id:"&& p.`PRICE` <= 450", name:"450以下"},
-  {id:"&& p.`PRICE` <= 600", name:"600以下"},
-  {id:"&& p.`PRICE` >= 600", name:"600以上"}
+  {id:" && p.`PRICE` >= 0 ", name: "不限"},
+  {id:" && p.`PRICE` <= 300 ", name:"300以下"},
+  {id:" && p.`PRICE` <= 450 ", name:"450以下"},
+  {id:" && p.`PRICE` <= 600 ", name:"600以下"},
+  {id:" && p.`PRICE` >= 600 ", name:"600以上"}
 ]
 // const myFetch = async (url) => {
 //   let res = await fetch (url, {
@@ -79,7 +79,7 @@ class ProFilter extends Component{
       sort: "",
       sortOpen: "",
       nowSort: "排序方式",
-      type: "filter"
+      type: "search"
     }
   }
   // search = async (query) => {
@@ -333,13 +333,15 @@ class ProFilter extends Component{
   }
   displayRes = () => {
     if(this.props.count === 0){
-      return "沒有符合搜尋條件的遊戲，您可以試試進階搜尋~(或者吸貓貓)"
+      return "沒有符合搜尋條件的遊戲，您可以試試進階搜尋"
     }
     return `找到${this.props.count}款遊戲`
   }
   filterOpen = () => {
+    let {filterOpen} = this.state
+    filterOpen = !filterOpen
     this.setState({
-      filterOpen: true
+      filterOpen
     })
   }
   sortOpen = () => {
@@ -368,7 +370,8 @@ class ProFilter extends Component{
     this.props.sort(sort)
   }
   componentWillReceiveProps(){
-    if(this.props.type !== this.state.type && this.props.type !== "filter"){
+    // if(this.props.type !== this.state.type && this.props.type !== "filter"){
+    if(this.props.type !== this.state.type){  
       this.setState({
         checkCityAll: false,
         checkCity: "",
@@ -381,7 +384,7 @@ class ProFilter extends Component{
         peoCheckList: CATE_LIST.map(c => false),
         price: "",
         priceCheckList: PRICE_LIST.map(c => false),
-        type: "search"
+        type: "filter"
       })
     }
   }
@@ -399,10 +402,10 @@ class ProFilter extends Component{
             <div id="pro_sort" onClick={this.sortOpen} tabIndex={0} onBlur={this.sortClose}>
               <div className="first">{this.state.nowSort}</div>
               <div className={`option ${this.state.sortOpen}`}>
-                <div data-value="ORDER BY p.`HOT_INDEX` DESC " data-text="最受歡迎" onClick={this.selSort}>最受歡迎</div>
-                <div data-value="ORDER BY p.`HOT_INDEX` DESC " data-text="評價最高" onClick={this.selSort}>評價最高</div>
-                <div data-value="ORDER BY p.`PRICE` " data-text="價格由低到高" onClick={this.selSort}>價格由低到高</div>
-                <div data-value="ORDER BY p.`PRICE` DESC " data-text="價格由高到低" onClick={this.selSort}>價格由高到低</div>
+                <div data-value=" ORDER BY p.`HOT_INDEX` DESC " data-text="最受歡迎" onClick={this.selSort}>最受歡迎</div>
+                <div data-value=" ORDER BY tc.`rating` DESC " data-text="評價最高" onClick={this.selSort}>評價最高</div>
+                <div data-value=" ORDER BY p.`PRICE` " data-text="價格由低到高" onClick={this.selSort}>價格由低到高</div>
+                <div data-value=" ORDER BY p.`PRICE` DESC " data-text="價格由高到低" onClick={this.selSort}>價格由高到低</div>
               </div>
             </div>
           </div>

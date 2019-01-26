@@ -1,0 +1,26 @@
+.title_name {
+        color: black;
+        font-size: 18px;
+        font-weight: bolder;
+}
+
+.lar_img {
+        // width: 265px;
+        // height: 175px;
+        width: 100%;
+        max-height: 175px;
+}
+
+.lar_img2 {
+        // width: 265px;
+        // height: 150px;
+        width: 100%;
+        max-height: 150px;
+}
+
+@media only screen and (max-width: 959px){
+        .d_none{
+                display: none;
+        }
+
+}

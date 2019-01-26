@@ -1,0 +1,116 @@
+$mainColor: #F7882F;
+$spaceForHeaderNav : 64px;
+$spaceForHeaderNavMobile : 40px;
+$bodyColor: #f4f4f4;
+
+// desktop: header = 64px, nav = 48px
+// mobile: header = 40px
+
+// desktop version shows when width >= 960px
+@media only screen and (min-width: 960px){
+    .articleBody {
+        margin-top: $spaceForHeaderNav;
+        .postWrapperSpace{
+            height: 1em;
+        }
+        .postWrapper{
+            border: 2px solid black;
+            border-radius: 8px;
+
+            margin: 16px auto;
+            .postContent{
+                .topicImgBox{
+                    .topicImgs{
+                        display: block;
+                        margin: auto;
+                        height: 400px;
+                    }
+                }
+                .topicTitles{
+                    text-align: center;
+                    .topicSmallHead{
+
+                    }
+                }
+                .rcmdWords{
+                    background-color: lightblue;
+                    border: 1px solid blue;
+                    border-radius: 8px;
+                    padding: 16px;
+                    margin-bottom: 8px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    .topClass{
+        z-index: 99;
+        position: fixed;
+        right: 3%;
+        bottom: 3%;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background-color: #F7882F;
+        text-decoration: none !important;
+        transition: .5s;
+        &:hover{
+            background-color: #DB4F2C;
+        }
+    }
+}
+
+// mobile version shows when width < 960px
+@media only screen and (max-width: 959px){
+    .articleBody {
+        margin-top: $spaceForHeaderNavMobile;
+        .postWrapperSpace{
+            height: 1em;
+        }
+        .postWrapper{
+            border: 2px solid black;
+            border-radius: 8px;
+
+            margin: 4px auto;
+            .postContent{
+                .topicImgBox{
+                    width: 100%;
+                    .topicImgs{
+                        display: block;
+                        margin: auto;
+                        width: 100%;
+                        
+                    }
+                }
+                .topicTitles{
+                    text-align: center;
+                    .topicSmallHead{
+
+                    }
+                }
+                .rcmdWords{
+                    background-color: lightblue;
+                    border: 1px solid blue;
+                    border-radius: 8px;
+                    padding: 16px;
+                    margin-bottom: 8px;
+                    font-weight: 700;
+                }
+            }
+        }
+
+    }
+    .topClass{
+        z-index: 99;
+        position: fixed;
+        right: 3%;
+        bottom: 3%;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: #F7882F;
+        text-decoration: none !important;
+        transition: .5s;
+    }
+}
+

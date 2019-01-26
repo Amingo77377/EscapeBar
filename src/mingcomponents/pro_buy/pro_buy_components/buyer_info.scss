@@ -1,27 +1,93 @@
 #buyer_info{
   width: 100%;
-  border: 1px solid #aaa;
-  h3{
-    margin: 0;
-    font-size: 2rem;
+  // border: 1px solid #aaa;
+  .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h3{
+      margin: 20px 0;
+      font-size: 1.5rem;
+    }
+    .reg_tip{
+      background-color: #98CE00;
+      font-size: .8;
+      color: #fff;
+      border-radius: 8px;
+      padding: 5px 10px;
+      span{
+        color: red;
+        font-weight: 700;
+      }
+      .tip.d-none{
+        display: none;
+      }
+      u{
+        font-size: 1.04rem;
+        // font-weight: 500;
+      }
+    }
   }
   #info_form{
-    padding-left: 100px;
+    padding-left: 2rem;
     display: flex;
+    justify-content: flex-start;
     .for_label{
       display: flex;
       flex-direction: column;
       label{
+        margin: 10px 0;
         span{
           color: red;
         }
       }
     }
     .for_input{
+      .d-none{
+        display: none;
+      }
       input{
-      
+        text-indent: 15px;
+        border: 1px solid #B0ABAB;
+        border-radius: 15px;
+        width: 330px;
+        margin: 8px 0px 8px 20px;
+        outline:none;
+      }
+      textarea{
+        text-indent: 15px;
+        width: 330px;
+        min-height: 80px;
+        max-height: 80px;
+        overflow: auto;
+        margin: 8px 0px 8px 20px;
+        border-radius: 15px;
+        outline:none;
       }
     }
-    
+    .warnTips{
+      .tip{
+        margin: 10px 0px 20px 20px;
+        display: flex;
+        height: 24px;
+        .aaa{
+          text-align: center;
+          width: 24px;
+          background-color: #FF4959;
+          border-radius: 50%;
+          color: #fff;
+          margin-right: 5px;
+        }
+        .text{
+          border-radius: 12px;
+          background-color: #FF4959;
+          color: #fff;
+          padding: 0 10px;
+        }
+        .none{
+          display: none;
+        }
+      }
+    }
   }
 }

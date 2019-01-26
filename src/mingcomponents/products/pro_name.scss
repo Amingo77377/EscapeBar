@@ -1,13 +1,28 @@
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
 #pro_name{
-    // width: 100%;
+    margin-top: 40px;
+    @include breakpoint(mobile) {
+        // margin-top: 40px;
+        margin: 0 5%;
+    }
     h2{
         font-size: 2.5rem;
         margin-bottom: 0;
+        @include breakpoint(mobile) {
+            margin-top: 10px;
+            // text-align: center;
+        }
     }
     div{
         // box-sizing: border-box;
         // padding: 5px;
         .jc_sb{
+            margin-top: 5px;
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -16,6 +31,9 @@
                 list-style: none;
                 padding: 0;
                 margin: 5px 0 20px 0;
+                @include breakpoint(mobile) {
+                    margin-bottom: 10px;
+                }
                 li{
                     margin-right: 10px;
                     // color: #876633;
@@ -24,14 +42,59 @@
                     border: 1.5px solid #C09147;
                     border-radius: 12.5px;
                     font-weight: 800;
-                    width: 70px;
+                    width: 80px;
                     height: 25px;
+                    line-height: 22px;
                     text-align: center;
                 }
             }
-            select{
-                height: 25px;
-                margin-right: 20px;
+            .sites{
+                box-sizing: content-box;
+                position: absolute;
+                z-index: 5;
+                right: 0;
+                top: 5px;
+                min-height: 25px;
+                min-width: 100px;
+                border: 1px solid #B0ABAB;
+                border-radius: 8px;
+                background-color: #fff;
+                background-image: url(../../images/down_arrow.svg);
+                background-size: 12px;
+                background-position: right 5px top 10px;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: .2s;
+                outline: none;
+                -webkit-user-select: none;  
+                -moz-user-select: none; 
+                overflow: hidden; 
+                @include breakpoint(mobile) {
+                    top: 45px;
+                }
+                .first{
+                    height: 25px;
+                    padding: 0 20px 0 10px;
+                }
+                .option{
+                    cursor: pointer;
+                    height: 0px;
+                    padding: 0 20px 0 10px;
+                    transition: .2s;
+                    opacity: 0;
+                }
+            }
+            .sites.open{
+                .option{
+                    height: 25px;
+                    opacity: 1;
+                }
+                .option:hover{
+                    background-color: rgba(247, 194, 49, 0.671);
+                }
+            }
+            .sites.none{
+                display: none;
             }
         }
         .img_info{
@@ -40,6 +103,36 @@
                 .info_list{
                     margin: 5px 0;
                     text-indent: 2rem;
+                }
+                .time{
+                    background: url(../../images/clock.svg) no-repeat left 5px center;
+                    background-size: 18px;
+                }
+                .people{
+                    background: url(../../images/peo.svg) no-repeat left 1px center;
+                    background-size: 25px;
+                }
+                .ophr{
+                    background: url(../../images/ophr.png) no-repeat left 2px center;
+                    background-size: 20px;
+                }
+                .tel{
+                    background: url(../../images/tel.svg) no-repeat left 6px center;
+                    background-size: 15px;
+                }
+                .addr{
+                    background: url(../../images/map.svg) no-repeat left 6px center;
+                    background-size: 15px;
+                    display: flex;
+                    @include breakpoint(mobile) {
+                        background-position: left 6px top 2px;
+                    }
+                    div{
+                    text-indent: 0;
+                        @include breakpoint(mobile) {
+                            width: 60%;
+                        }
+                    }
                 }
             }
             

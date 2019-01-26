@@ -12,14 +12,18 @@ class ProList extends Component{
     super(props)
     this.state = {
       products: [],
-      records: {},
+      records: false,
+      homeRecords: false,
       type:"search",
+      homeType: "",
       sort: ""
     }
   }
   search = (data) => {
     this.setState({
-      type: "search"
+      type: "search",
+      homeType: "",
+      homeRecords: false,
     })
     // let getProducts = [];
     data.sort = this.state.sort
@@ -40,13 +44,14 @@ class ProList extends Component{
       records: data,
     }));
     // .then(products => getProducts = products)
-    console.log("products:" + JSON.stringify(this.state.products));
-    console.log(this.state.products)
+    // console.log("products:" + JSON.stringify(this.state.products));
+    // console.log(this.state.products)
     console.log("records:" + this.state.records);
   }
   filter = (str) => {
     this.setState({
-      type: "filter"
+      type: "filter",
+      homeType: ""
     })
     fetch('http://localhost:3000/eb/pro_list/filter/' + str ,{
       method:'GET',
@@ -55,16 +60,45 @@ class ProList extends Component{
     .then(res => res.json())
     .then(products => this.setState({
       products: products,
+      // records: false,
+      homeRecords: false,
     }))
   }
   sort = (sort) => {
     this.setState({
       sort 
     }, ()=> {
-      if(this.state.type === "search"){
+      if(this.state.type === "search" && this.state.records){
         this.search(this.state.records)
+      }else if(this.state.homeRecords){
+        this.homeSearch(this.state.homeRecords)
       }
     })
+  }
+  componentWillMount = () => {
+    if(this.props.location.state.type === 'homeSearch'){
+      let str =this.props.location.state.str
+      // if(str !== ""){
+        this.homeSearch(str)
+      // }
+    }
+    
+  }
+  homeSearch = (str) => {
+    let records = Object.assign({}, str)
+    let sort = this.state.sort
+    str.str = str.str + sort 
+    console.log("NEW str:"+ records.str + str.text)
+    fetch('http://localhost:3000/eb/pro_list/homeSearch/' + JSON.stringify(str) ,{
+      method:'GET',
+      mode:'cors',
+    })
+    .then(res => res.json())
+    .then(products => this.setState({
+      products: products,
+      homeRecords: records,
+      homeType: "homeSearch"
+    }))
   }
   render(){
     return(

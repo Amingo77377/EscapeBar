@@ -1,0 +1,179 @@
+body{
+    background-color: #f4f4f4;
+}
+
+.dp-flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.dp-flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-jc-sb{
+    justify-content: space-between;
+}
+
+.flex-jc-ar{
+    justify-content: space-around;
+}
+
+
+.indexBody{
+    position: relative;
+    top: 64px;
+    width: 100%;
+}
+
+.indexContainer{
+    width: 86%;
+    margin: auto;
+    padding-top: 4px;
+    padding-bottom: 36px;
+}
+
+.indexHr{
+    background-color:  #F7882F;
+    height: 2px;
+    width: 100%;
+}
+
+.indexBtn{
+    border-radius: 24px;
+    color: white;
+    font-weight: 700;
+}
+
+h3{
+    padding: 24px; 
+    text-align: center;
+}
+
+.heroSection{
+    height: calc(100vh - 64px);
+    background-image: url("/img/game/壞主意工作室_腦細胞入侵_04.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.searchBox{
+    position: relative;
+    left: 6%;
+    top: 36px;
+    width: 40%;
+    /* border: 2px dotted blue; */
+    border-radius: 16px;
+    background-color: white;
+    opacity: 0.9;
+}
+
+.keywordSgst{
+    text-align: center;
+    border: 1px solid #545871;
+    border-radius: 24px;
+    background-color: white;
+    /* opacity: 1; */
+}
+
+.keywordSgst:hover{
+    background-color: #545871;
+    color: white;
+}
+
+.searchBtnDiv{
+    justify-content: center;
+}
+
+.searchBtn{
+    border-radius: 24px;
+    align-self: center;
+    color: white;
+    background-color: #545871;
+    width: 70%;
+    height: 60%;
+}
+
+.monthTopic{
+    
+}
+
+.monthTopicInside{
+    background-color: #FCFCFC;
+    border-radius: 16px;
+}
+.monthTopicImg{
+    width: 100%;
+    /* height: 400px; */
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.monthTopicImg:hover{
+    opacity: 0.75;
+}
+
+
+
+
+h4{
+    text-align: left;
+}
+
+.seeMore{
+    text-align: center;
+}
+
+
+.escapeRoomMap{
+    height: 500px;
+    background-image: url("/img/mapsample.png");
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+h5{
+    text-align: center;
+}
+
+.seeMap{
+    position: relative;
+    bottom: -200px;
+    text-align: center;
+}
+
+.groupingCard{
+    width: 280px;
+    height: 400px;
+    background-color: black;
+}
+
+.services{
+    background-color: #F7C331;
+}
+
+.servicesInside{
+    width: 70%;
+    margin: auto;
+}
+
+.serviceFeature{
+    text-align: center;
+}
+
+.serviceImgDiv{
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.serviceImg{
+    height: 70%;
+    object-fit: contain;
+}

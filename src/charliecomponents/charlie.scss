@@ -1,0 +1,478 @@
+.bangSetMore{
+  margin-top: 100px;
+}
+
+.bangSet{
+  margin-top: 72px;
+}
+
+
+/* startActivity.js */
+.bannerStartActivity{
+  height: calc(60vh - 48px - 64px);
+  // max-width: 1664px;
+  background-image: url("/img/banner_startActivity.jpg");
+  background-position: center;
+}
+
+.bannerStartActivityImg{
+  max-height: 100%;  
+  max-width: 100%; 
+  width: auto;
+  height: auto;
+  top: 0;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  margin: auto;
+  object-fit: cover;
+}
+
+.z_Info{
+  z-index: 1;
+}
+
+#exampleModalCenter1{
+  .modal-dialog,
+  .modal-content {
+      /* 80% of window height */
+      height: 90%;
+  }
+}
+
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 60px);
+    overflow-y: scroll;
+}
+
+#a_center{
+  display: table;
+  margin: 0 auto;
+}
+
+.p_center{
+  text-align: center
+}
+
+#a_hr{
+  height: 2px;
+  width: 70%;
+  background-color: #FF8E0A;
+  border: none;
+  margin-top: 16px;
+}
+
+.a_space{
+  height: 30px;
+}
+
+.a_space2{
+  height: 60px;
+}
+
+#hostNewActivityBtn{
+  background-color: #F7882F;
+  border: none;
+  transition: .5s;
+}
+
+#hostNewActivityBtn{
+  background-color: #D5500A;
+}
+
+.btnDisabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#detailInfoBtn{
+  display: table;
+  margin: 0 auto;
+  width: 120px;
+  border-width: 2px;
+  border-radius: 1em 1em 1em 1em / 1em 1em 1em 1em;
+}
+
+.pagination > li > span {
+  color: green; // use your own color here
+  background-color: green;
+    border-color: green;
+}
+
+.gameImg{
+  height: 200px;
+}
+
+.activityS_name{
+  font-size: 12px;
+}
+
+.activityAsk_people{
+  color: red;
+}
+
+.progressInfoBox{
+  p{
+    font-size: 14px;
+  }
+}
+
+.userAbsolute{
+  margin: 0 auto;
+}
+
+.userInfoBox{
+  .userImg{
+    display: block;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 1px solid #666;
+    object-fit: contain;
+  }
+  .p{
+    font-size: 12px;
+  }
+}
+
+.searchBox{
+  background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
+  transition: 1s;
+  width: 100%;
+  overflow: hidden;
+  .text_results{
+    width: 100%;
+    height: 25px;
+    cursor: pointer;
+    transition: .2s;
+    overflow: hidden;
+    text-indent: 10px
+  }
+  .text_results:hover{
+    background-color: rgba(255, 141, 10, 0.623);
+  }
+  .text_results.close{
+    height: 0;
+    transition: none;
+  }
+}
+
+.search_input{
+  position: relative;
+  input{
+    position: absolute;
+  }
+}
+
+
+
+/* activityInfo.js */
+.height{
+  height: 0px;
+  border: 1px solid #000;
+  transition: width 1.5s ease, height 1.5s ease;  
+}
+
+.imgBoxSet{
+  height: 200px;
+  width: 400px;
+  object-fit: contain;
+}
+
+.imgSet{
+  height: 100%;
+}
+
+.heightSet{
+  height: 200px;
+  animation: opacityShow 5s;
+}
+
+@keyframes opacityShow {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+/* activityInfo.js */
+.activityInfoGameImg{
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+}
+
+#activityInfoBox{
+  height: 440px;
+}
+
+.circleProgress {
+    width: 80px;
+    margin-left: 20px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+      vertical-align: top;
+    strong {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        line-height: 40px;
+        font-size: 21px;
+    }
+}
+
+#activityInfo_s_name{
+  color: #777;
+  margin: 0;
+}
+
+#activity_goal_people{
+  margin: 16px 0 2px 0;
+  color: #777;
+}
+
+#activityInfo_s_name:hover{
+  color: #000;
+  cursor: pointer;
+}
+
+#joinBox{
+  height: 100px;
+  border: 1px solid #aaa
+}
+
+#activityInfo_detail{
+  margin: 0 auto;
+  td{
+    font-size: 14px;
+    color: #777;
+    padding: 0;
+  }
+}
+
+.removeMargin{
+  margin: 0;
+}
+.removePadding{
+  padding: 0;
+}
+
+#activityInfo_selectBar{
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+}
+
+.cssCircle{
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  border: 1px solid #aaa;
+  text-align: center;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+#setPeopleBox{
+  height: 30px;
+  p{
+    line-height: 30px;
+  }
+}
+
+.startNewOneInfoBox{
+  border: 1px solid #FF8E0A;
+}
+
+.infoShow{
+  display: block;
+}
+
+/* ================================================================================================================== */
+/* companyList.js */
+.bannerCompanyList{
+  border-bottom: 1px solid #ccc;
+}
+
+/* 地圖設定 */
+/* 區塊縣市 hover 為#e3441c */
+
+.cityHover{
+  color: #C16406;
+  padding: 2px 18px;
+  position: absolute;
+  bottom: 130px;
+  right: 60px;
+  background-color: rgba(256, 256, 256, 0.5);
+  border: 0.5px solid rgba(226, 152, 13, 0.5);
+  opacity: 0;
+}
+
+.cityInfoDisplay{
+  animation: opacityShow .5s;
+  opacity: 1;
+}
+
+@keyframes opacityShow {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.taiwan_map .map_block:hover{
+  fill: #DB4F2C;
+  cursor: pointer;
+  outline: none;
+}
+
+.taiwan_map .map_nonblock:hover{
+  fill: #DBD08F;
+  outline: none;
+}
+
+/* 區塊縣市 focus也要設定，不然會有outline*/
+.taiwan_map .map_block:focus{
+  outline: none;
+}
+
+/* 如果不要分顏色，拿掉以下css */
+  
+  /* 有工作室的縣市 */
+  .taiwan_map svg path[name='台北市'],
+  .taiwan_map svg path[name='新北市'],
+  .taiwan_map svg path[name='嘉義市'],
+  .taiwan_map svg path[name='宜蘭市'],
+  .taiwan_map svg path[name='桃園市'],
+  .taiwan_map svg path[name='新竹市'],
+  .taiwan_map svg path[name='台南市'],
+  .taiwan_map svg path[name='高雄市'],
+  .taiwan_map svg path[name='台中市'],
+  .taiwan_map svg path[name='南投縣']{
+    fill:#e1902b;
+  }
+  /* 無工作室的縣市 */
+  .taiwan_map svg path[name='苗栗縣'],
+  .taiwan_map svg path[name='雲林縣'],
+  .taiwan_map svg path[name='彰化縣'],
+  .taiwan_map svg path[name='花蓮縣'],
+  .taiwan_map svg path[name='台東縣'],
+  .taiwan_map svg path[name='嘉義縣'],
+  .taiwan_map svg path[name='基隆市'],
+  .taiwan_map svg path[name='新竹縣'],
+  .taiwan_map svg path[name='屏東縣']{
+    fill:#d2b81a;
+  }
+
+.companyBannerInfo{
+  color: #725648;
+}
+
+.companyBannerInfo_1{
+  margin-top: 130px;
+}
+
+.hr_bottom{
+  height: 40px;
+  width: 100px;
+  border-bottom: 1px solid #DB4F2C;
+}
+
+.fasCenter{
+  position: absolute;
+  top: 23%;
+  left: 32%;
+  color: #fff;
+}
+
+.topClass{
+  z-index: 99;
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #F7882F;
+  text-decoration: none !important;
+  transition: .5s;
+}
+
+.topClass:hover{
+  background-color: #DB4F2C;
+}
+
+.decorationNone{
+  a{
+    text-decoration: none !important;
+  }
+}
+
+.linkStyle{
+  text-decoration: none;
+}
+
+.companyInfo{
+  height: 148px;
+}
+
+.c_logo{
+  top: -20px;
+  left: -14px;
+  position: absolute;
+  width: 32%;
+  border-radius: 100%;
+  border: 1px solid #000;
+  background-color: #000;
+}
+
+.c_name{
+  color: #000;
+}
+
+.city_name{
+  color: #777;
+  font-size: 12px;
+}
+
+.c_logo_big{
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.siteSelect .timeSelect{
+  height: 38px;
+}
+
+.companyInfoTitle{
+  border-bottom: 2px solid #F7882F;
+}
+
+.c_intro{
+  white-space: pre-wrap;
+}
+
+.products_images{
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* companyInfo.js */
+#companyBtn{
+  background-color: #F7882F;
+  border: none;
+  transition: .5s;
+}
+
+#companyBtn:hover {
+  background-color: #D5500A;
+}
+
+.track{
+  opacity: 0.3;
+}

@@ -1,0 +1,45 @@
+#cancel_rule{
+  margin-top: 40px;
+  .rule{
+    width: 90%;
+    margin: auto;
+    font-weight: 600;
+    line-height: 1.5rem;
+   
+  }
+  h3{
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
+  .agree_check{
+    width: 90%;
+    margin: 20px auto 0 auto;
+    background: no-repeat left 15px center;
+    background-color: #E2E6EB;
+    border-radius: 20px;
+    font-weight: normal;
+    background-image: url(../../../images/agree_unchecked.png) ;
+    background-size: 20px;
+    text-indent: 50px;
+    padding: 8px 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    line-height: 23px;
+    height: 40px;
+  }
+  .agree_check.checked{
+    background-image: url(../../../images/agree_checked.png) ;
+  }
+  .warning{
+    width: 90%;
+    margin: 10px auto;
+    background-color: #FF4959;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+  }
+  .warning.none{
+    display: none;
+  }
+}

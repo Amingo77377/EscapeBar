@@ -3,9 +3,11 @@
   .pro_img{
     width: 100%;
     height: 33vh;
-    border: 1px solid red;
+    // border: 1px solid red;
     min-height: 250px;
     border-radius: 5px;
+    background: no-repeat;
+    background-size: cover;
   }
   .detail_frame{
     border: 1px solid #B0ABAB;
@@ -13,7 +15,7 @@
     background-color: #fff;
     border-radius: 5px;
     h3{
-      margin: 0;
+      margin: 10px 0 20px 0;
       text-align: center;
       font-size: 1.5rem;
     }
@@ -21,13 +23,19 @@
       background-color: #98CE00;
       margin: auto;
       width: 70%;
-      height: 50px;
+      // height: 70px;
+      padding: 10px 0;
       border-radius: 10px;
-     
+      .date{
+        color: white;
+        text-align: center;
+        font-size: 1.3rem;
+        // padding-top: 5px;
+      }
     }
     .number_price{
       width: 100%;
-      margin: 5px 0;
+      margin: 15px 0;
       table{
         width: 70%;
         margin: auto;
@@ -36,6 +44,8 @@
           font-weight: 400;
           padding: 5px 0;
           color: #656565;
+          text-align: center;
+          font-weight: 550;
         }
         td{
           border-top: 1px solid #707070;
@@ -61,7 +71,12 @@
       margin: 10px 20px;
       text-align: right;
       color: #F00A6B;
-      font-size: 1.4rem;
+      font-size: 2rem;
+      span{
+        color: #000;
+        font-size: 1.2rem;
+        // line-height: 24px;
+      }
     }
   }
 }

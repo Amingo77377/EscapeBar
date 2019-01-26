@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import { NavLink } from "react-router-dom";
 import './pro_cards.scss';
+import StarRatingComponent from 'react-star-rating-component';
 
 
 class ProCards extends Component{
   constructor(props){
     super(props)
     this.state = {
-
+      gid:this.props.products.PRO_SEQ
     }
     
   }
@@ -32,7 +33,7 @@ class ProCards extends Component{
             {this.props.products.map(card =>
                 <NavLink className="pro_card" key={card.PRO_SEQ} to={{
                   pathname: `/proList/products/${card.PRO_SEQ}`,
-                  state: {id: card}
+                  state: {id: card.PRO_SEQ}
                 }}>
                   <div className="workshop_logo" style={{ backgroundImage: `url(${require('../../../images/c_img/'+ card.c_logo)})`}}>
                     {/* <img src={require(`../../../images/c_img/${card.c_logo}`)}/> */}
@@ -46,7 +47,12 @@ class ProCards extends Component{
                         <h3>{card.PRO_NAME}</h3>
                       </div>
                       {/* <comment /> */}
-                      <div>評分%%%%</div>
+                      <div className="comment">
+                        <div><StarRatingComponent name="rate1" starCount={5} value={card.rating}   
+                          renderStarIcon={() =><span class="fa fa-star"></span>}/>
+                        </div>
+                        <div className="count">{card.comments}則評論</div>
+                      </div>
                       <ul>
                         <li>{card.f1}</li>
                         <li>{card.f2}</li>
@@ -68,7 +74,6 @@ class ProCards extends Component{
       </React.Fragment>
     )
   }
-
 
 }
 

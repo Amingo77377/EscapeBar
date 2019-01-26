@@ -28,7 +28,7 @@
             height: 50px;
             border-radius: 50%;
             border: 1px solid #aaa;
-            background-color: #000;
+            // background-image: url(../../../images/A5Studio-全員脫逃中.jpg);
             background-size: contain;
           }
           .card_frame{
@@ -72,6 +72,25 @@
                   // word-break: break-all;
                 }
               }
+              .comment{
+                // padding: 6px;
+                margin: 0 5px;
+                display: flex;
+                // justify-content: space-between;
+                text-align: center;
+                div{
+                  label{
+                    margin: 0;
+                  }
+                }
+                .count{
+                  margin-left: 10px;
+                  color: #0D5661;
+                  font-weight: 650;
+                  line-height: 26px;
+                  
+                }
+              }
               ul{
                 list-style: none;
                 display: flex;
@@ -81,13 +100,16 @@
                 align-items: center;
                 li{
                   width: 30%;
-                  color: #876633;
-                  border: 1px solid #876633;
+                  height: 24px;
+                  line-height: 21px;
+                  color: #C09147;
+                  border: 1.5px solid #C09147;
                   border-radius: 12.5px;
                   margin: 0 5px;
                   text-align: center;
                   font-weight: 700;
                 }
+            
               }
               .enter-btn{
                 width: 90px;

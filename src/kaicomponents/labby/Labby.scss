@@ -1,0 +1,13 @@
+.title_line {
+    border-top: 1.5px solid #F7882F;
+}
+
+.labby_title {
+    font-size: 24px;
+}
+
+@media screen and (max-width: 376px){
+    .labby_title {
+        font-size: 16px;
+    }
+}
